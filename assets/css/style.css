@@ -228,3 +228,77 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .entry-card, .manager-card, .principle, .season-block, .link-card { box-shadow: none; border-color: #aaa; }
   .page-title, .content-section { width: 100%; }
 }
+.season-block-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.season-block-header h2 { margin-bottom: 0; }
+.season-link,
+.season-switcher a,
+.season-title a {
+  color: var(--green);
+  font-weight: 900;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.season-nav {
+  width: min(1120px, calc(100% - 36px));
+  margin: 22px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+.season-nav a {
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-weight: 900;
+}
+.season-nav a[aria-current="page"],
+.season-nav a:hover { background: var(--gold); color: var(--black); }
+.season-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.recap-stream {
+  display: grid;
+  gap: 14px;
+  max-width: 86ch;
+}
+.recap-stream > p,
+.stat-card {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+.recap-heading {
+  margin: 28px 0 2px;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+}
+.stat-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+.stat-card p { margin: 8px 0 0; }
+.stat-winner {
+  color: var(--green);
+  font-weight: 900;
+  font-size: 1.08rem;
+}
+@media (max-width: 760px) {
+  .season-nav { width: min(100% - 28px, 1120px); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .season-block-header { align-items: flex-start; flex-direction: column; }
+}
