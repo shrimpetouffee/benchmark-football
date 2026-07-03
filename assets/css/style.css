@@ -302,3 +302,261 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .season-nav { width: min(100% - 28px, 1120px); grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .season-block-header { align-items: flex-start; flex-direction: column; }
 }
+
+/* Season record-book redesign */
+.record-shell {
+  width: min(1120px, calc(100% - 36px));
+  margin: 0 auto;
+}
+.season-page main { background: #f7f4ec; }
+.record-book-hero {
+  color: #fff;
+  background: #050505;
+  text-align: center;
+  padding: clamp(58px, 9vw, 118px) 0 clamp(66px, 10vw, 128px);
+}
+.record-book-hero p { margin: 0 0 18px; }
+.record-book-hero a {
+  color: rgba(255,255,255,0.72);
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+.record-book-hero h1 {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 18px;
+  border-bottom: 12px solid var(--gold);
+  color: #fff;
+  font-family: Impact, "Arial Narrow", var(--font-condensed, sans-serif);
+  font-size: clamp(3.4rem, 9vw, 6.6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.season-title-band {
+  color: #050505;
+  background: var(--gold);
+  text-align: center;
+  padding: clamp(34px, 5vw, 54px) 0 clamp(28px, 4vw, 42px);
+  border-bottom: 4px solid #050505;
+}
+.season-title-band h1 {
+  margin: 0;
+  font-family: Impact, "Arial Narrow", var(--font-condensed, sans-serif);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.season-title-band p {
+  max-width: 62ch;
+  margin: 12px auto 0;
+  color: rgba(5,5,5,0.78);
+  font-weight: 700;
+}
+.season-page .season-nav {
+  margin: 0 auto;
+  padding: 18px 0;
+  width: min(1120px, calc(100% - 36px));
+}
+.season-page .season-nav a {
+  border: 2px solid #050505;
+  background: #fffaf0;
+  box-shadow: 0 3px 0 #050505;
+  text-transform: uppercase;
+}
+.season-page .season-nav a[aria-current="page"],
+.season-page .season-nav a:hover {
+  background: #050505;
+  color: var(--gold);
+}
+.season-page .season-detail {
+  width: 100%;
+  padding: 0 0 clamp(42px, 7vw, 82px);
+}
+.season-page .season-switcher {
+  width: min(1120px, calc(100% - 36px));
+  margin: 18px auto 0;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(5,5,5,0.16);
+}
+.season-page .season-switcher a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: #1f5e42;
+  font-size: 0.94rem;
+  text-decoration: none;
+}
+.redesigned-record-book {
+  display: block;
+  max-width: none;
+}
+.season-front-matter {
+  background: var(--gold);
+  color: #050505;
+  padding: clamp(26px, 5vw, 58px) 0 clamp(34px, 6vw, 68px);
+}
+.front-group + .front-group {
+  margin-top: clamp(28px, 4vw, 44px);
+  padding-top: clamp(22px, 3vw, 34px);
+  border-top: 4px solid rgba(5,5,5,0.82);
+}
+.front-heading,
+.division-heading,
+.award-section-title,
+.highlight-panel h3 {
+  font-family: Impact, "Arial Narrow", var(--font-condensed, sans-serif);
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.front-heading {
+  margin: 0 0 18px;
+  font-size: clamp(1.9rem, 4vw, 3.1rem);
+  line-height: 1;
+}
+.front-grid {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(18px, 5vw, 52px);
+  align-items: start;
+}
+.front-group-notes-only .front-grid { grid-template-columns: 1fr; }
+.front-awards {
+  display: grid;
+  gap: 14px;
+}
+.front-notes {
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+}
+.note-list,
+.highlight-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.note-list li,
+.highlight-list li {
+  position: relative;
+  margin: 0;
+  padding-left: 22px;
+}
+.note-list li + li,
+.highlight-list li + li { margin-top: 12px; }
+.note-list li::before,
+.highlight-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+}
+.note-list strong,
+.highlight-list strong { font-weight: 900; }
+.division-section { background: #f7f4ec; }
+.division-heading {
+  margin: 0;
+  padding: clamp(30px, 5vw, 54px) 18px;
+  color: #fff;
+  background: #111;
+  text-align: center;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+}
+.division-prime .division-heading { background: #f72585; }
+.division-comp .division-heading { background: #087e8b; }
+.division-one .division-heading { background: #050505; color: var(--gold); }
+.division-league .division-heading { background: #050505; color: #fff; }
+.division-body {
+  padding: clamp(34px, 6vw, 74px) 0;
+}
+.highlight-panel {
+  margin: 0 0 clamp(28px, 5vw, 48px);
+  padding: clamp(20px, 4vw, 34px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 8px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.highlight-panel h3 {
+  margin: 0 0 18px;
+  color: #050505;
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+}
+.highlight-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px clamp(18px, 4vw, 34px);
+}
+.highlight-list li + li { margin-top: 0; }
+.award-section-title {
+  margin: 0 0 18px;
+  color: var(--green);
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+}
+.award-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+.season-page .stat-card {
+  margin: 0;
+  padding: 18px 18px 17px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(18, 18, 18, 0.07);
+}
+.front-awards .stat-card {
+  background: rgba(255,255,255,0.28);
+  border-color: rgba(5,5,5,0.18);
+  border-left-color: #050505;
+  box-shadow: none;
+}
+.award-grid .stat-card:nth-child(1) {
+  background: #050505;
+  border-color: #050505;
+  border-left-color: var(--gold);
+  color: #fff;
+}
+.award-grid .stat-card:nth-child(1) .stat-winner { color: var(--gold); }
+.season-page .stat-card h3 {
+  margin: 0 0 8px;
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1.22;
+}
+.season-page .stat-card p { margin: 7px 0 0; }
+.season-page .stat-winner {
+  color: var(--green);
+  font-family: Impact, "Arial Narrow", var(--font-condensed, sans-serif);
+  font-size: clamp(1.55rem, 2.7vw, 2.15rem);
+  font-weight: 900;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+@media (max-width: 760px) {
+  .record-shell,
+  .season-page .season-nav,
+  .season-page .season-switcher { width: min(100% - 28px, 1120px); }
+  .record-book-hero { padding: 42px 0 54px; }
+  .record-book-hero h1 { border-bottom-width: 8px; font-size: clamp(2.8rem, 16vw, 4rem); }
+  .season-title-band { text-align: left; }
+  .season-title-band h1 { font-size: clamp(2.1rem, 11vw, 3rem); }
+  .season-page .season-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .front-grid,
+  .highlight-list { grid-template-columns: 1fr; }
+  .division-heading { text-align: left; padding-left: 14px; padding-right: 14px; }
+  .award-grid { grid-template-columns: 1fr; }
+}
