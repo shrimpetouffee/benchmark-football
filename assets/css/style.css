@@ -1,7 +1,8 @@
 :root {
   --ink: #121212;
   --muted: #67615a;
-  --paper: #fbfaf7;
+  --paper: #f7f4ec;
+  --font-display: Impact, "Arial Narrow", sans-serif;
   --surface: #ffffff;
   --line: #ded9cf;
   --gold: #f4b02a;
@@ -44,6 +45,14 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 0;
 }
 .brand img { border-radius: 4px; }
+.brand span {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -64,40 +73,74 @@ img { max-width: 100%; height: auto; display: block; }
 main { min-height: 70vh; }
 .home-hero { background: var(--black); }
 .home-hero img { width: 100%; max-height: 460px; object-fit: cover; }
-.page-title,
 .content-section {
   width: min(1120px, calc(100% - 36px));
   margin: 0 auto;
 }
 .page-title {
-  padding: clamp(44px, 8vw, 92px) 0 clamp(28px, 5vw, 52px);
-  border-bottom: 4px solid var(--gold);
+  background: var(--gold);
+  color: var(--black);
+  padding: clamp(34px, 5vw, 58px) 0 clamp(26px, 4vw, 44px);
+  border-bottom: 4px solid var(--black);
 }
 .page-title h1,
 .content-section h1,
 .content-section h2 {
   margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
   line-height: 1.05;
   letter-spacing: 0;
+  text-transform: uppercase;
 }
 .page-title h1,
-.content-section h1 { font-size: clamp(2.4rem, 7vw, 5.8rem); }
+.content-section h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); }
 .content-section h2 { font-size: clamp(2rem, 5vw, 4rem); }
-.page-title p { max-width: 72ch; margin: 14px 0 0; color: var(--muted); font-size: 1.08rem; }
+.page-title p { max-width: 72ch; margin: 12px 0 0; color: rgba(5,5,5,0.78); font-weight: 700; font-size: 1.05rem; }
 .content-section { padding: clamp(38px, 6vw, 72px) 0; }
-.intro-section { text-align: center; }
-.intro-section h1 { font-size: clamp(2.8rem, 9vw, 7rem); }
-.intro-section p { margin: 10px auto 0; max-width: 42rem; color: var(--muted); }
-.trophy-section + .trophy-section { border-top: 1px solid var(--line); }
-.section-kicker { font-size: 2.4rem; line-height: 1; margin-bottom: 10px; }
-.section-subtitle {
-  margin: 8px 0 24px;
-  color: var(--muted);
+.intro-band {
+  background: var(--gold);
+  color: var(--black);
+  text-align: center;
+  padding: 16px clamp(18px, 4vw, 52px);
+  border-bottom: 4px solid var(--black);
+}
+.intro-band h1 {
+  margin: 0 auto;
+  max-width: 48rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+.trophy-band {
+  padding: clamp(26px, 4.5vw, 46px) 18px;
+  color: #fff;
+  background: #111;
+  text-align: center;
+}
+.trophy-band h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.trophy-band p {
+  margin: 10px 0 0;
+  color: rgba(255,255,255,0.85);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
 }
+.division-prime .trophy-band { background: #f72585; }
+.division-comp .trophy-band { background: #087e8b; }
+.division-one .trophy-band { background: #050505; }
+.division-one .trophy-band h2 { color: var(--gold); }
+.trophy-body { padding: clamp(26px, 4vw, 44px) 0 clamp(34px, 5vw, 60px); }
 .entry-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -113,9 +156,17 @@ main { min-height: 70vh; }
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
-.entry-card { padding: 16px; }
-.entry-year { color: var(--green); font-weight: 900; font-size: 0.88rem; }
-.entry-card h3 { margin: 4px 0 2px; font-size: 1.35rem; line-height: 1.15; }
+.entry-card { padding: 16px; border-left: 6px solid var(--gold); }
+.entry-year { color: var(--muted); font-weight: 900; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.entry-card h3 {
+  margin: 4px 0 2px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.7rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--green);
+}
 .entry-card p { margin: 0; color: var(--muted); }
 .principle-list { display: grid; gap: 14px; }
 .principle { padding: 22px; }
@@ -124,8 +175,16 @@ main { min-height: 70vh; }
 .legend { font-size: 0.94rem; }
 .manager-section + .manager-section { border-top: 1px solid var(--line); }
 .manager-grid { display: grid; gap: 16px; }
-.manager-card { padding: 20px; }
-.manager-card h3 { margin: 0; font-size: 1.65rem; line-height: 1.2; }
+.manager-card { padding: 20px; border-left: 6px solid var(--gold); }
+.manager-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.75rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--green);
+}
 .badges { color: var(--gold); }
 .manager-full { margin: 4px 0 0; color: var(--muted); }
 .manager-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
@@ -160,13 +219,16 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   padding: 10px 12px;
   border-radius: 6px;
   text-decoration: none;
-  background: var(--gold);
+  background: #fffaf0;
   color: var(--black);
-  font-weight: 800;
-  border: 1px solid #d59516;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 2px solid #050505;
+  box-shadow: 0 3px 0 #050505;
 }
+.quick-years a:hover { background: #050505; color: var(--gold); }
 .standings-section h2 { margin-bottom: 22px; }
-.season-block { padding: 22px; margin: 18px 0; overflow-x: auto; }
+.season-block { padding: 22px; margin: 18px 0; overflow-x: auto; border-left: 8px solid var(--gold); }
 .season-block h2 { margin: 0 0 16px; font-size: 2.2rem; }
 .division-grid {
   display: grid;
@@ -176,22 +238,28 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 }
 .standing-division ol { margin-bottom: 0; }
 .standing-division li::marker { font-weight: 800; }
-.locker-layout {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(18px, 4vw, 42px);
-  align-items: center;
-}
-.locker-art img { border-radius: 8px; border: 1px solid var(--line); box-shadow: var(--shadow); }
-.link-card-list { display: grid; gap: 14px; }
+.link-card-list { display: grid; gap: 16px; max-width: 680px; }
 .link-card {
   display: block;
   padding: 22px;
   text-decoration: none;
+  background: #fffaf0;
+  border: 2px solid #050505;
+  box-shadow: 0 4px 0 #050505;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
-.link-card:hover { border-color: var(--green); }
-.link-card span { display: block; color: var(--green); font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
-.link-card strong { display: block; margin-top: 4px; font-size: 1.45rem; }
+.link-card:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #050505; }
+.link-card span { display: block; color: var(--muted); font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; }
+.link-card strong {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.7rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--green);
+}
 .not-found { text-align: center; }
 .button-link {
   display: inline-block;
@@ -200,7 +268,11 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   background: var(--black);
   color: white;
   text-decoration: none;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 .site-footer {
   padding: 28px 18px;
@@ -215,10 +287,11 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .site-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: stretch; width: 100%; gap: 6px; }
   .site-nav a { min-width: 0; padding: 7px 8px; font-size: 0.88rem; text-align: center; overflow-wrap: anywhere; }
   .home-hero img { max-height: none; object-fit: contain; }
-  .page-title, .content-section, .quick-years { width: min(100% - 28px, 1120px); }
-  .intro-section h1, .page-title h1, .content-section h2 { overflow-wrap: anywhere; }
-  .intro-section p, .page-title p { max-width: 100%; overflow-wrap: anywhere; }
-  .manager-columns, .locker-layout { grid-template-columns: 1fr; }
+  .content-section, .quick-years { width: min(100% - 28px, 1120px); }
+  .intro-band h1, .page-title h1, .content-section h2 { overflow-wrap: anywhere; }
+  .page-title p { max-width: 100%; overflow-wrap: anywhere; }
+  .trophy-band { text-align: left; padding-left: 14px; padding-right: 14px; }
+  .manager-columns { grid-template-columns: 1fr; }
   .entry-grid { grid-template-columns: 1fr; }
   .division-grid { min-width: 0; grid-template-columns: 1fr; }
 }
@@ -604,7 +677,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   gap: 8px;
   margin-top: 10px;
 }
-.league-legend span:last-child { flex-basis: 100%; margin-top: 4px; color: var(--muted); }
+.league-legend span:last-child { flex-basis: 100%; margin-top: 4px; color: rgba(5,5,5,0.78); }
 .league-chip {
   display: inline-flex;
   align-items: center;
