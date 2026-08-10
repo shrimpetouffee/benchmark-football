@@ -595,3 +595,76 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .standings-chart-scroll { margin-left: -14px; margin-right: -14px; border-radius: 0; }
   .standings-chart-scroll img { width: auto; height: auto; max-height: 58vh; }
 }
+
+/* Managers page redesign */
+.league-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.league-legend span:last-child { flex-basis: 100%; margin-top: 4px; color: var(--muted); }
+.league-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.chip-prime { background: #f72585; }
+.chip-comp { background: #087e8b; }
+.chip-one { background: #050505; color: var(--gold); }
+.career-table .league-chip { font-size: 0.64rem; padding: 2px 7px; }
+.manager-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.manager-filters button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+.manager-filters button[aria-pressed="true"] { background: var(--black); color: #fff; border-color: var(--black); }
+#active-managers .manager-grid { display: block; column-count: 2; column-gap: 16px; }
+#active-managers .manager-card { display: inline-block; width: 100%; break-inside: avoid; margin: 0 0 16px; }
+.manager-grid .manager-card { min-width: 0; }
+.manager-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.current-leagues { display: flex; gap: 6px; flex-shrink: 0; padding-top: 4px; }
+.career-table-scroll { overflow-x: auto; margin-top: 14px; -webkit-overflow-scrolling: touch; }
+.career-table { width: 100%; min-width: 420px; border-collapse: collapse; font-size: 0.92rem; }
+.career-table th {
+  padding: 6px 8px;
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--line);
+}
+.career-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.career-table tbody tr:last-child td { border-bottom: none; }
+.career-table tr.row-win { background: rgba(244, 176, 42, 0.16); }
+.career-table tr.row-baluser { background: rgba(159, 61, 52, 0.08); }
+.career-table .team-carried { color: var(--muted); font-style: italic; }
+.row-money { color: var(--green); }
+.other-names, .card-notes { margin: 10px 0 0; font-size: 0.88rem; color: var(--muted); }
+.other-names strong { color: var(--ink); }
+@media (max-width: 760px) {
+  #active-managers .manager-grid { column-count: 1; }
+  .career-table { font-size: 0.86rem; }
+  .career-table th, .career-table td { padding: 5px 6px; }
+  .manager-head { flex-direction: column; }
+}
