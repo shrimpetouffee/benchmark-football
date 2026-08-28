@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Benchmark - Rookie Playbook</title>
+  <meta name="description" content="The essential Benchmark rules for new managers: Benchmark One's guillotine format, shared waiver/scoring rules, and a Comp addendum.">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="canonical" href="https://www.benchmark.football/rookie-playbook">
+  <meta property="og:title" content="Benchmark - Rookie Playbook">
+  <meta property="og:description" content="The essential Benchmark rules for new managers: Benchmark One's guillotine format, shared waiver/scoring rules, and a Comp addendum.">
+  <meta property="og:image" content="https://www.benchmark.football/assets/img/banner-2026.jpg">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260810-almanac">
+  <style>
+    .rp-snapshot {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .rp-snap-card {
+      padding: 18px;
+      border-radius: 8px;
+      color: #fff;
+    }
+    .rp-snap-card.division-prime { background: #f72585; }
+    .rp-snap-card.division-comp { background: #087e8b; }
+    .rp-snap-card.division-one { background: #050505; border: 2px solid var(--gold); }
+    .rp-snap-tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 900;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .rp-snap-card h3 {
+      margin: 0 0 2px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .rp-snap-buyin { font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); margin-bottom: 6px; }
+    .rp-snap-card p { margin: 0; font-size: 0.88rem; color: rgba(255,255,255,0.86); }
+
+    .rp-section { padding: clamp(30px, 5vw, 54px) 0; }
+    .rp-section + .rp-section { border-top: 1px solid var(--line); }
+    .rp-section-head {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .rp-section-head h2 { font-size: clamp(1.8rem, 4.4vw, 3rem); }
+    .rp-badge {
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+    .rp-lede { max-width: 68ch; color: #34302c; }
+    .rp-sub {
+      margin: 26px 0 8px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .rp-timeline { list-style: none; margin: 10px 0 20px; padding: 0; border-left: 4px solid var(--gold); max-width: 68ch; }
+    .rp-timeline li { position: relative; padding: 0 0 18px 20px; }
+    .rp-timeline li::before {
+      content: attr(data-n);
+      position: absolute;
+      left: -14px;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--black);
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rp-tl-when { display: block; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.78rem; color: var(--muted); margin-bottom: 2px; }
+    .rp-tl-what { color: #34302c; }
+
+    .rp-table-scroll { overflow-x: auto; margin: 10px 0 20px; }
+    .rp-table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 0.92rem; }
+    .rp-table caption { text-align: left; color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.72rem; margin-bottom: 8px; }
+    .rp-table th { padding: 7px 10px; text-align: left; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid var(--black); }
+    .rp-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .rp-table tbody tr:last-child td { border-bottom: none; }
+    .rp-table td.num, .rp-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .rp-table tr.row-good td { background: rgba(244, 176, 42, 0.16); }
+    .rp-table tr.row-bad td { background: rgba(159, 61, 52, 0.08); }
+    .rp-pos { color: var(--green); font-weight: 800; }
+    .rp-neg { color: var(--red); font-weight: 800; }
+
+    .rp-note-list { margin: 10px 0 20px; padding: 0; list-style: none; max-width: 68ch; }
+    .rp-note-list li { position: relative; margin: 0 0 12px; padding-left: 22px; color: #34302c; }
+    .rp-note-list li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 7px; height: 7px; background: var(--gold); }
+    .rp-note-list strong { color: var(--ink); }
+
+    .rp-callout {
+      max-width: 68ch;
+      margin: 14px 0;
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--gold);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      color: #34302c;
+      font-size: 0.94rem;
+    }
+
+    .rp-addendum {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 4vw, 34px);
+    }
+
+    .rp-fineprint dt {
+      font-family: var(--font-display);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.98rem;
+      color: var(--green);
+      margin-top: 16px;
+    }
+    .rp-fineprint dt:first-child { margin-top: 0; }
+    .rp-fineprint dd { margin: 3px 0 0; color: var(--muted); max-width: 68ch; }
+
+    .rp-cheat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .rp-cheat-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--gold);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 12px 14px;
+    }
+    .rp-cheat-label { display: block; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 3px; }
+    .rp-cheat-value { font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); }
+
+    @media (max-width: 760px) {
+      .rp-snapshot { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="">
+
+<header class="site-header">
+  <a class="brand" href="./" aria-label="Benchmark home"><img src="assets/img/favicon.png" alt="" width="36" height="36"><span>Benchmark</span></a>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="managers">Managers</a><a href="record-book">Record Book</a><a href="locker-room" aria-current="page">Locker Room</a></nav>
+</header>
+
+<main>
+  <section class="page-title"><div class="record-shell"><h1>The Rookie Playbook</h1><p>The essential rules and guidance for new managers.</p></div></section>
+
+  <section class="rp-section content-section">
+    <p class="rp-lede">Section 1 is what actually matters for you &mdash; everyone here plays Benchmark One. Two of you also play Comp, so there's a short addendum for that. Everything else is background so the league's jokes make sense.</p>
+    <div class="rp-snapshot">
+      <div class="rp-snap-card division-prime">
+        <h3>Prime</h3>
+        <div class="rp-snap-buyin">$150</div>
+        <p>The top flight. 12 teams, auction draft, no autodraft. Last place gets relegated to Comp.</p>
+      </div>
+      <div class="rp-snap-card division-comp">
+        <h3>Comp</h3>
+        <div class="rp-snap-buyin">$100</div>
+        <p>The farm league. Snake draft. Win it and you can choose to promote into Prime &mdash; or stay put.</p>
+      </div>
+      <div class="rp-snap-card division-one">
+        <span class="rp-snap-tag">You are here</span>
+        <h3>One</h3>
+        <div class="rp-snap-buyin">$25</div>
+        <p>32-team guillotine side league with IDP. Low stakes, high chaos. Cuts start Week 8.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rp-section content-section" id="one">
+    <div class="rp-section-head">
+      <h2>Start Here: Benchmark One</h2>
+    </div>
+    <p class="rp-lede">One's whole personality is "survive the guillotine." You don't draft players, teams are best-ball only (a bot sets your lineup), and rosters get cut in waves until one team is left standing in Week 17.</p>
+
+    <h3 class="rp-sub">The format</h3>
+    <ul class="rp-note-list">
+      <li><strong>32 teams</strong>, IDP scoring, <strong>no kickers, no D/ST, no trading.</strong></li>
+      <li><strong>Best ball only.</strong> The AI co-commissioner ("Gudetama") sets your optimal lineup after each week's games finish &mdash; there's no start/sit to manage.</li>
+      <li><strong>The draft is a coin flip, not a skill test.</strong> You pick a team, not players. Draft order comes from a "100 Yard Rush" random draw, nudged by luck modifiers tied to how promptly you filled out last year's exit survey and this year's scheduling survey.</li>
+    </ul>
+
+    <h3 class="rp-sub">The guillotine timeline</h3>
+    <ol class="rp-timeline">
+      <li data-n="1"><span class="rp-tl-when">Weeks 1&ndash;8</span><span class="rp-tl-what">No cuts. Everyone plays.</span></li>
+      <li data-n="2"><span class="rp-tl-when">After Week 8</span><span class="rp-tl-what"><strong>Cut from 32 to 14</strong> by cumulative score &mdash; the league's biggest waiver event of the year, as 18 full rosters (300+ players) hit free agency at once. Budget your FAAB for it.</span></li>
+      <li data-n="3"><span class="rp-tl-when">Weeks 9&ndash;10</span><span class="rp-tl-what">Two-week "wild card round" among the 14 survivors.</span></li>
+      <li data-n="4"><span class="rp-tl-when">After Week 10</span><span class="rp-tl-what"><strong>Cut from 14 to 8.</strong> Surviving rosters expand to a bigger lineup (see below) the same Tuesday.</span></li>
+      <li data-n="5"><span class="rp-tl-when">Weeks 11&ndash;16</span><span class="rp-tl-what">One team is chopped every week.</span></li>
+      <li data-n="6"><span class="rp-tl-when">Week 17</span><span class="rp-tl-what">Final two teams play for the championship.</span></li>
+    </ol>
+    <div class="rp-callout">&#9888;&#65039; A chopped team's entire roster hits waivers &mdash; but the release is held until Tuesday's stat corrections are final (as late as Wednesday night in a close case), so everyone gets a fair shot at the pickups.</div>
+
+    <h3 class="rp-sub">Rosters, before and after the cut to 8</h3>
+    <div class="rp-table-scroll">
+      <table class="rp-table">
+        <thead><tr><th>Slot</th><th>Weeks 1&ndash;10</th><th>Weeks 11&ndash;17</th></tr></thead>
+        <tbody>
+          <tr><td>Offense</td><td>1 QB, 1 RB, 1 WR, 3 Flex</td><td>1 QB, 2 RB, 3 WR, 1 TE, 1 SF, 2 Flex</td></tr>
+          <tr><td>Defense (IDP)</td><td>1 DL, 1 LB, 1 DB, 3 IDP-Flex</td><td>2 DL, 2 LB, 2 DB, 4 IDP-Flex</td></tr>
+          <tr><td>Bench</td><td>6 + 3 IR</td><td>10 + 3 IR</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rp-lede">Byes run through Week 14 &mdash; they're knowable in advance, so plan your late-round claims around them.</p>
+
+    <h3 class="rp-sub">Scoring</h3>
+    <ul class="rp-note-list">
+      <li><strong>Offense</strong> uses standard Benchmark scoring: 5-pt passing TDs, points-per-first-down, TE premium (see below).</li>
+      <li><strong>Defense (IDP)</strong> uses a simple tiered scale &mdash; 1pt assisted tackle / QB hit, 2pt solo tackle / tackle-for-loss, 3pt pass defended / forced or recovered fumble / blocked kick, 6pt interception / sack / safety / touchdown.</li>
+    </ul>
+
+    <h3 class="rp-sub">Payouts &mdash; who gets what on a $25 buy-in</h3>
+    <div class="rp-table-scroll">
+      <table class="rp-table">
+        <caption>Top 8 finish in the money; the rest lose their buy-in (partially, then fully)</caption>
+        <thead><tr><th>Finish</th><th class="num">Payout</th><th class="num">Net</th></tr></thead>
+        <tbody>
+          <tr class="row-good"><td>1st &mdash; Champion</td><td class="num">$177</td><td class="num rp-pos">+$152</td></tr>
+          <tr class="row-good"><td>2nd &mdash; Runner-up</td><td class="num">$147</td><td class="num rp-pos">+$122</td></tr>
+          <tr class="row-good"><td>3rd&ndash;7th (weekly chops)</td><td class="num">$43&ndash;$116</td><td class="num rp-pos">+$18 to +$91</td></tr>
+          <tr><td>8th (Week 11 chop)</td><td class="num">$25</td><td class="num">break even</td></tr>
+          <tr class="row-bad"><td>9th&ndash;14th (Cut to 8)</td><td class="num">$4&ndash;$19</td><td class="num rp-neg">&minus;$6 to &minus;$21</td></tr>
+          <tr class="row-bad"><td>15th&ndash;32nd (Cut to 14)</td><td class="num">$0</td><td class="num rp-neg">&minus;$25 (full loss)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rp-lede">No weekly high/low prizes and no season-end penalties in One &mdash; the guillotine itself is the stakes.</p>
+  </section>
+
+  <section class="rp-section content-section" id="shared">
+    <div class="rp-section-head">
+      <h2>Rules Every League Shares</h2>
+      <span class="rp-badge">Applies to One too</span>
+    </div>
+
+    <h3 class="rp-sub">Waivers: continuous, and a Vickrey auction</h3>
+    <ul class="rp-note-list">
+      <li><strong>$1,000 FAAB</strong> in all three leagues. (Sleeper's UI shows a $2,000 ceiling &mdash; that's just headroom for FAAB acquired in trades, not your starting budget.)</li>
+      <li><strong>You pay the second-highest bid, not your own.</strong> If nobody else bids on a player, the pickup is free. Ties go to whoever has worse waiver priority (see below).</li>
+      <li><strong>Players are on waivers continuously</strong> except during game-day lock windows. A typical week: waivers clear at midnight Thursday and Sunday (then free agency the rest of that day, plus all of Monday); Friday, Saturday, Tuesday, and Wednesday are locked, with the next clear at midnight Wednesday-into-Thursday.</li>
+      <li><strong>Waiver priority = reverse standings</strong>, recalculated every Tuesday.</li>
+    </ul>
+
+    <h3 class="rp-sub">The AI co-commissioner: Gudetama</h3>
+    <p class="rp-lede">A bot now handles three mechanical jobs across all three leagues: computing Vickrey refunds after every waiver clear, updating waiver priority weekly, and (in One only) setting best-ball lineups, since Sleeper's guillotine format doesn't support best ball natively.</p>
+    <ul class="rp-note-list">
+      <li>Every action it takes is posted in league chat &mdash; that's the audit trail.</li>
+      <li>Ian (the human commissioner) can reverse anything it does, and any manager can question a bot action in chat.</li>
+      <li>A bot mistake is treated exactly like a commissioner mistake: fixed and appealed the same way.</li>
+    </ul>
+
+    <h3 class="rp-sub">Scoring philosophy</h3>
+    <p class="rp-lede">All three leagues score offense the same way: <strong>0.5 PPR + 0.5 points-per-first-down + a TE reception/first-down premium</strong>, plus a 5-point passing touchdown. Team defenses (Prime/Comp only &mdash; One uses IDP instead) score on a scale designed so a great defense never outscores a great skill player, but still separates elite units from bad ones across a season.</p>
+
+    <div class="rp-callout">&#128220; <strong>Best interest clause:</strong> if something breaks that the rulebook doesn't cover, the commissioner can act as needed &mdash; consulting owners or calling a vote if it's a close call. This backstops everything, including the new bot.</div>
+  </section>
+
+  <section class="rp-section content-section" id="comp">
+    <div class="rp-addendum">
+      <div class="rp-section-head">
+        <h2 style="font-size: clamp(1.5rem, 3.6vw, 2.3rem);">Comp Addendum</h2>
+        <span class="rp-badge">For the 2 of you also in Comp</span>
+      </div>
+      <p class="rp-lede">Comp runs like a normal head-to-head league, layered with Benchmark's waiver/scoring rules above. Here's what's different from One.</p>
+
+      <h3 class="rp-sub">Draft &amp; roster</h3>
+      <ul class="rp-note-list">
+        <li><strong>Snake draft</strong> with third-round reversal. Pick clock: 60 seconds, dropping to 30 at the halfway point.</li>
+        <li><strong>12-team league.</strong> Starting lineup: 1 QB, 2 RB, 3 WR, 1 TE, 1 Superflex, 2 Flex, 1 K, 1 DST. Bench: 8. Best ball, same as One &mdash; no start/sit.</li>
+      </ul>
+
+      <h3 class="rp-sub">Every week is worth two wins</h3>
+      <p class="rp-lede">Beat your opponent <em>and</em> land in the league's top half in scoring, and you go 2&ndash;0 that week. Split the two, and you go 1&ndash;1. Miss both, and it's 0&ndash;2. This softens the luck of the schedule.</p>
+      <div class="rp-callout">&#128176; Weekly prize: the highest score wins <strong>$10</strong>, paid by that week's lowest score.</div>
+
+      <h3 class="rp-sub">Trades</h3>
+      <ul class="rp-note-list">
+        <li><strong>No review period</strong> &mdash; trades process immediately. Reversing one after the fact needs 5 votes in a 12-team league.</li>
+        <li>You can trade FAAB, make offers that expire, and do 3+ team deals. <strong>"Loan trades"</strong> &mdash; sending a player back and forth between the same two rosters &mdash; are not allowed, even with FAAB attached.</li>
+        <li>Trade deadline: <strong>Week 11.</strong></li>
+      </ul>
+
+      <h3 class="rp-sub">Playoffs &amp; payouts</h3>
+      <ul class="rp-note-list">
+        <li><strong>Top 6 make the playoffs</strong>; top 2 seeds get a bye. The bracket reseeds after round one if there's an upset.</li>
+        <li><strong>Making the playoffs guarantees your $100 buy-in back</strong> &mdash; that's the whole point of the payout design.</li>
+        <li>The bottom 6 are <strong>roster-locked</strong> once the regular season ends, so no one out of contention can strip the waiver wire.</li>
+      </ul>
+
+      <div class="rp-table-scroll">
+        <table class="rp-table">
+          <caption>Comp payout ladder ($100 buy-in, 12 teams)</caption>
+          <thead><tr><th>Finish</th><th class="num">Payout</th><th class="num">Net</th></tr></thead>
+          <tbody>
+            <tr class="row-good"><td>1st &mdash; Champion</td><td class="num">$421</td><td class="num rp-pos">+$321</td></tr>
+            <tr class="row-good"><td>2nd &mdash; Runner-up</td><td class="num">$325</td><td class="num rp-pos">+$225</td></tr>
+            <tr class="row-good"><td>3rd&ndash;5th (playoff exits)</td><td class="num">$123&ndash;$228</td><td class="num rp-pos">+$23 to +$128</td></tr>
+            <tr><td>6th</td><td class="num">$100</td><td class="num">break even</td></tr>
+            <tr class="row-bad"><td>7th&ndash;10th (missed playoffs)</td><td class="num">$0</td><td class="num rp-neg">&minus;$100</td></tr>
+            <tr class="row-bad"><td>11th (2nd-to-last)</td><td class="num">&minus;$50</td><td class="num rp-neg">&minus;$150 (buy-in + 50% penalty)</td></tr>
+            <tr class="row-bad"><td>12th ("baluser," last place)</td><td class="num">&minus;$100</td><td class="num rp-neg">&minus;$200 (buy-in + 100% penalty)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rp-lede">Season-end penalties are paid once, right after the regular season ends &mdash; separate from the weekly $10 high/low prize above.</p>
+    </div>
+  </section>
+
+  <section class="rp-section content-section" id="fineprint">
+    <div class="rp-section-head">
+      <h2>If Things Go Weird</h2>
+    </div>
+    <dl class="rp-fineprint">
+      <dt>A game gets canceled or rescheduled</dt>
+      <dd>It's scored as-is. Only exception: the final round of the playoffs, where a loss only counts if the trailing team would've needed an above-average finish from remaining players to come back &mdash; otherwise it's ruled a tie.</dd>
+      <dt>Week 14 "Can't Cut" list</dt>
+      <dd>You can't cut a player in Week 14 if you wouldn't have cut him in Week 4 &mdash; i.e., he's been on your roster 30+ days, he's injured but expected back within 2 weeks, or he's on bye. Stops managers from gutting the player pool during the playoff push.</dd>
+      <dt>The season gets shortened or canceled</dt>
+      <dd>Payouts, penalties, and refunds get prorated by completed weeks out of the scheduled 14-week season, and the commissioner publishes the math.</dd>
+    </dl>
+  </section>
+
+  <section class="rp-section content-section" id="cheatsheet">
+    <div class="rp-section-head"><h2 style="font-size: clamp(1.5rem, 3.6vw, 2.3rem);">Quick Reference</h2></div>
+    <div class="rp-cheat-grid">
+      <div class="rp-cheat-item"><span class="rp-cheat-label">Your buy-in (One)</span><span class="rp-cheat-value">$25</span></div>
+      <div class="rp-cheat-item"><span class="rp-cheat-label">FAAB budget</span><span class="rp-cheat-value">$1,000</span></div>
+      <div class="rp-cheat-item"><span class="rp-cheat-label">Weekly waiver clears</span><span class="rp-cheat-value">Thu &amp; Sun midnight</span></div>
+      <div class="rp-cheat-item"><span class="rp-cheat-label">One: cut to 14</span><span class="rp-cheat-value">After Wk 8</span></div>
+      <div class="rp-cheat-item"><span class="rp-cheat-label">One: cut to 8</span><span class="rp-cheat-value">After Wk 10</span></div>
+      <div class="rp-cheat-item"><span class="rp-cheat-label">One: champion crowned</span><span class="rp-cheat-value">Week 17</span></div>
+    </div>
+    <p class="rp-lede" style="margin-top:16px; font-size:0.9rem;">Distilled from the full 2026 Rulebook. When this page and the Rulebook disagree, the Rulebook wins &mdash; ask Ian.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Benchmark fantasy football league, established 2012.</p>
+</footer>
+</body>
+</html>
