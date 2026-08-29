@@ -24,7 +24,10 @@
       border-radius: 8px;
       color: #fff;
     }
-    .rp-snap-card.division-prime { background: #f72585; }
+    .rp-snap-card.division-prime { background: #f72585; color: #111; }
+    .rp-snap-card.division-prime h3,
+    .rp-snap-card.division-prime .rp-snap-buyin,
+    .rp-snap-card.division-prime p { color: #111; }
     .rp-snap-card.division-comp { background: #087e8b; }
     .rp-snap-card.division-one { background: #050505; border: 2px solid var(--gold); }
     .rp-snap-tag {
@@ -191,8 +194,19 @@
     .rp-cheat-label { display: block; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 3px; }
     .rp-cheat-value { font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); }
 
+    .rp-links { max-width: 68ch; margin-top: 20px; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--gold); border-radius: 8px; box-shadow: var(--shadow); }
+    .rp-links h3 { margin-top: 0; }
+    .rp-links ul { margin-bottom: 0; }
+
     @media (max-width: 760px) {
       .rp-snapshot { grid-template-columns: 1fr; }
+      .rp-table { min-width: 0; }
+      .rp-table thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+      .rp-table tbody, .rp-table tr, .rp-table td { display: block; }
+      .rp-table tr { margin-bottom: 10px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+      .rp-table td { display: grid; grid-template-columns: minmax(92px, 0.8fr) minmax(0, 1.2fr); gap: 12px; text-align: left !important; }
+      .rp-table td::before { content: attr(data-label); color: var(--muted); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; }
+      .rp-table-scroll { overflow-x: visible; }
     }
   </style>
 </head>
@@ -207,7 +221,7 @@
   <section class="page-title"><div class="record-shell"><h1>The Install</h1><p>The essential rules and guidance for new managers.</p></div></section>
 
   <section class="rp-section content-section">
-    <p class="rp-lede">Section 1 is what actually matters for you &mdash; everyone here plays Benchmark One. Two of you also play Comp, so there's a short addendum for that. Everything else is background so the league's jokes make sense.</p>
+    <p class="rp-lede">Start with Benchmark One. If you also manage in Comp, use the short addendum after the shared rules. The quick reference at the end keeps the recurring dates and numbers in one place.</p>
     <div class="rp-snapshot">
       <div class="rp-snap-card division-prime">
         <h3>Prime</h3>
@@ -223,7 +237,7 @@
         <span class="rp-snap-tag">You are here</span>
         <h3>One</h3>
         <div class="rp-snap-buyin">$25</div>
-        <p>32-team guillotine side league with IDP. Low stakes, high chaos. Cuts start Week 8.</p>
+        <p>32-team guillotine side league with IDP. Low stakes, high chaos. First cut after Week 8.</p>
       </div>
     </div>
   </section>
@@ -248,6 +262,7 @@
       <li data-n="5"><span class="rp-tl-when">Weeks 11&ndash;16</span><span class="rp-tl-what">One team is chopped every week.</span></li>
       <li data-n="6"><span class="rp-tl-when">Week 17</span><span class="rp-tl-what">Final two teams play for the championship.</span></li>
     </ol>
+    <div class="rp-callout"><strong>If scores are tied at a cut:</strong> bench points break the tie first, then the highest single-player score, then a 100 Yard Rush coin flip. For the cuts after Weeks 8 and 10, the first two tiebreakers use cumulative results from that phase.</div>
     <div class="rp-callout">&#9888;&#65039; A chopped team's entire roster hits waivers &mdash; but the release is held until Tuesday's stat corrections are final (as late as Wednesday night in a close case), so everyone gets a fair shot at the pickups.</div>
 
     <h3 class="rp-sub">Rosters, before and after the cut to 8</h3>
@@ -255,12 +270,13 @@
       <table class="rp-table">
         <thead><tr><th>Slot</th><th>Weeks 1&ndash;10</th><th>Weeks 11&ndash;17</th></tr></thead>
         <tbody>
-          <tr><td>Offense</td><td>1 Superflex (Q/W/R/T), 1 RB, 1 WR, 3 Flex (W/R/T)</td><td>1 QB, 2 RB, 3 WR, 1 TE, 1 Superflex (Q/W/R/T), 2 Flex (W/R/T)</td></tr>
-          <tr><td>Defense (IDP)</td><td>1 DL, 1 LB, 1 DB, 3 IDP-Flex</td><td>2 DL, 2 LB, 2 DB, 4 IDP-Flex</td></tr>
-          <tr><td>Bench</td><td>6 (no IR)</td><td>10 (no IR)</td></tr>
+          <tr><td data-label="Slot">Offense</td><td data-label="Weeks 1&ndash;10">1 Superflex (Q/W/R/T), 1 RB, 1 WR, 3 Flex (W/R/T)</td><td data-label="Weeks 11&ndash;17">1 QB, 2 RB, 3 WR, 1 TE, 1 Superflex (Q/W/R/T), 2 Flex (W/R/T)</td></tr>
+          <tr><td data-label="Slot">Defense (IDP)</td><td data-label="Weeks 1&ndash;10">1 DL, 1 LB, 1 DB, 3 IDP-Flex</td><td data-label="Weeks 11&ndash;17">2 DL, 2 LB, 2 DB, 4 IDP-Flex</td></tr>
+          <tr><td data-label="Slot">Bench</td><td data-label="Weeks 1&ndash;10">6 (no IR)</td><td data-label="Weeks 11&ndash;17">10 (no IR)</td></tr>
         </tbody>
       </table>
     </div>
+    <div class="rp-callout"><strong>Do not be over the roster limit at game time.</strong> If you are, Sleeper removes your lowest-projected players from the pool used to calculate your best-ball score until the roster is legal.</div>
     <p class="rp-lede">Byes run through Week 14 &mdash; they're knowable in advance, so plan your late-round claims around them.</p>
 
     <h3 class="rp-sub">Scoring</h3>
@@ -272,15 +288,15 @@
     <h3 class="rp-sub">Payouts &mdash; who gets what on a $25 buy-in</h3>
     <div class="rp-table-scroll">
       <table class="rp-table">
-        <caption>Top 8 finish in the money; the rest lose their buy-in (partially, then fully)</caption>
+        <caption>Top 8 recover at least their buy-in; 9th&ndash;14th receive a partial return</caption>
         <thead><tr><th>Finish</th><th class="num">Payout</th><th class="num">Net</th></tr></thead>
         <tbody>
-          <tr class="row-good"><td>1st &mdash; Champion</td><td class="num">$177</td><td class="num rp-pos">+$152</td></tr>
-          <tr class="row-good"><td>2nd &mdash; Runner-up</td><td class="num">$147</td><td class="num rp-pos">+$122</td></tr>
-          <tr class="row-good"><td>3rd&ndash;7th (weekly chops)</td><td class="num">$43&ndash;$116</td><td class="num rp-pos">+$18 to +$91</td></tr>
-          <tr><td>8th (Week 11 chop)</td><td class="num">$25</td><td class="num">break even</td></tr>
-          <tr class="row-bad"><td>9th&ndash;14th (Cut to 8)</td><td class="num">$4&ndash;$19</td><td class="num rp-neg">&minus;$6 to &minus;$21</td></tr>
-          <tr class="row-bad"><td>15th&ndash;32nd (Cut to 14)</td><td class="num">$0</td><td class="num rp-neg">&minus;$25 (full loss)</td></tr>
+          <tr class="row-good"><td data-label="Finish">1st &mdash; Champion</td><td class="num" data-label="Payout">$177</td><td class="num rp-pos" data-label="Net">+$152</td></tr>
+          <tr class="row-good"><td data-label="Finish">2nd &mdash; Runner-up</td><td class="num" data-label="Payout">$147</td><td class="num rp-pos" data-label="Net">+$122</td></tr>
+          <tr class="row-good"><td data-label="Finish">3rd&ndash;7th (weekly chops)</td><td class="num" data-label="Payout">$43&ndash;$116</td><td class="num rp-pos" data-label="Net">+$18 to +$91</td></tr>
+          <tr><td data-label="Finish">8th (Week 11 chop)</td><td class="num" data-label="Payout">$25</td><td class="num" data-label="Net">break even</td></tr>
+          <tr class="row-bad"><td data-label="Finish">9th&ndash;14th (Cut to 8)</td><td class="num" data-label="Payout">$4&ndash;$19</td><td class="num rp-neg" data-label="Net">&minus;$6 to &minus;$21</td></tr>
+          <tr class="row-bad"><td data-label="Finish">15th&ndash;32nd (Cut to 14)</td><td class="num" data-label="Payout">$0</td><td class="num rp-neg" data-label="Net">&minus;$25 (full loss)</td></tr>
         </tbody>
       </table>
     </div>
@@ -294,8 +310,9 @@
       <li><strong>$1,000 FAAB</strong> in all three leagues. (Sleeper's UI shows a $2,000 ceiling &mdash; that's just headroom for FAAB acquired in trades, not your starting budget.)</li>
       <li><strong>You pay the second-highest bid, not your own.</strong> If nobody else bids on a player, the pickup is free. Ties go to whoever has worse waiver priority (see below).</li>
       <li><strong>Players are on waivers continuously</strong> except during game-day lock windows. A typical week: waivers clear at midnight Thursday and Sunday (then free agency the rest of that day, plus all of Monday); Friday, Saturday, Tuesday, and Wednesday are locked, with the next clear at midnight Wednesday-into-Thursday.</li>
-      <li><strong>Waiver priority = reverse standings</strong>, recalculated every Tuesday.</li>
+      <li><strong>Waiver priority = reverse standings</strong>, recalculated every Tuesday. Before the season starts, One uses reverse team-pick order.</li>
     </ul>
+    <div class="rp-callout"><strong>Vickrey edge cases:</strong> a losing bid sets the price only if it could actually have won the player; claims that fail for budget, roster, drop, or claim-order reasons do not count. Tied top bids produce no refund. Refunds are provisional until the next waiver clear, and a later refund never retroactively rescues a claim you could not afford when it processed.</div>
 
     <h3 class="rp-sub">The AI co-commissioner: Gudetama</h3>
     <p class="rp-lede">A bot handles two mechanical jobs across all three leagues: computing Vickrey refunds after every waiver clear and updating waiver priority weekly.</p>
@@ -345,13 +362,13 @@
           <caption>Comp payout ladder ($100 buy-in, 12 teams)</caption>
           <thead><tr><th>Finish</th><th class="num">Payout</th><th class="num">Net</th></tr></thead>
           <tbody>
-            <tr class="row-good"><td>1st &mdash; Champion</td><td class="num">$421</td><td class="num rp-pos">+$321</td></tr>
-            <tr class="row-good"><td>2nd &mdash; Runner-up</td><td class="num">$325</td><td class="num rp-pos">+$225</td></tr>
-            <tr class="row-good"><td>3rd&ndash;5th (playoff exits)</td><td class="num">$123&ndash;$228</td><td class="num rp-pos">+$23 to +$128</td></tr>
-            <tr><td>6th</td><td class="num">$100</td><td class="num">break even</td></tr>
-            <tr class="row-bad"><td>7th&ndash;10th (missed playoffs)</td><td class="num">$0</td><td class="num rp-neg">&minus;$100</td></tr>
-            <tr class="row-bad"><td>11th (2nd-to-last)</td><td class="num">&minus;$50</td><td class="num rp-neg">&minus;$150 (buy-in + 50% penalty)</td></tr>
-            <tr class="row-bad"><td>12th ("baluser," last place)</td><td class="num">&minus;$100</td><td class="num rp-neg">&minus;$200 (buy-in + 100% penalty)</td></tr>
+            <tr class="row-good"><td data-label="Finish">1st &mdash; Champion</td><td class="num" data-label="Payout">$421</td><td class="num rp-pos" data-label="Net">+$321</td></tr>
+            <tr class="row-good"><td data-label="Finish">2nd &mdash; Runner-up</td><td class="num" data-label="Payout">$325</td><td class="num rp-pos" data-label="Net">+$225</td></tr>
+            <tr class="row-good"><td data-label="Finish">3rd&ndash;5th (playoff exits)</td><td class="num" data-label="Payout">$123&ndash;$228</td><td class="num rp-pos" data-label="Net">+$23 to +$128</td></tr>
+            <tr><td data-label="Finish">6th</td><td class="num" data-label="Payout">$100</td><td class="num" data-label="Net">break even</td></tr>
+            <tr class="row-bad"><td data-label="Finish">7th&ndash;10th (missed playoffs)</td><td class="num" data-label="Payout">$0</td><td class="num rp-neg" data-label="Net">&minus;$100</td></tr>
+            <tr class="row-bad"><td data-label="Finish">11th (2nd-to-last)</td><td class="num" data-label="Payout">&minus;$50</td><td class="num rp-neg" data-label="Net">&minus;$150 (buy-in + 50% penalty)</td></tr>
+            <tr class="row-bad"><td data-label="Finish">12th ("baluser," last place)</td><td class="num" data-label="Payout">&minus;$100</td><td class="num rp-neg" data-label="Net">&minus;$200 (buy-in + 100% penalty)</td></tr>
           </tbody>
         </table>
       </div>
@@ -376,12 +393,20 @@
     <div class="rp-cheat-grid">
       <div class="rp-cheat-item"><span class="rp-cheat-label">Your buy-in (One)</span><span class="rp-cheat-value">$25</span></div>
       <div class="rp-cheat-item"><span class="rp-cheat-label">FAAB budget</span><span class="rp-cheat-value">$1,000</span></div>
-      <div class="rp-cheat-item"><span class="rp-cheat-label">Weekly waiver clears</span><span class="rp-cheat-value">Thu &amp; Sun midnight</span></div>
+      <div class="rp-cheat-item"><span class="rp-cheat-label">Typical waiver clears</span><span class="rp-cheat-value">Thu &amp; Sun midnight</span></div>
       <div class="rp-cheat-item"><span class="rp-cheat-label">One: cut to 14</span><span class="rp-cheat-value">After Wk 8</span></div>
       <div class="rp-cheat-item"><span class="rp-cheat-label">One: cut to 8</span><span class="rp-cheat-value">After Wk 10</span></div>
       <div class="rp-cheat-item"><span class="rp-cheat-label">One: champion crowned</span><span class="rp-cheat-value">Week 17</span></div>
     </div>
-    <p class="rp-lede" style="margin-top:16px; font-size:0.9rem;">Distilled from the full 2026 Rulebook. When this page and the Rulebook disagree, the Rulebook wins &mdash; ask Ian.</p>
+    <div class="rp-callout" style="margin-top:16px;"><strong>Atypical game weeks:</strong> Friday, Saturday, or Wednesday games change the waiver schedule. Ian adjusts the daily schedule on Tuesday, so check Sleeper before placing claims.</div>
+    <div class="rp-links">
+      <h3 class="rp-sub">Keep going</h3>
+      <ul class="rp-note-list">
+        <li><a href="https://docs.google.com/document/d/1uZmMTFZ4PGHXUOb0x6cDXTbvKkMER07_himDu0bO_uI/edit?usp=sharing">Read the full 2026 Rulebook</a> &mdash; it wins if this summary ever disagrees.</li>
+        <li><a href="https://sleeper.com/leagues/1369796577719226368">Open Benchmark One in Sleeper</a>.</li>
+        <li><a href="https://sleeper.com/leagues/1369796577719226368">Open League Chat</a> to question a rule or bot action.</li>
+      </ul>
+    </div>
   </section>
 </main>
 
@@ -390,3 +415,4 @@
 </footer>
 </body>
 </html>
+
