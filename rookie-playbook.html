@@ -15,7 +15,7 @@
   <style>
     .rp-snapshot {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
       margin-bottom: 8px;
     }
@@ -38,7 +38,7 @@
       background: var(--gold);
       color: var(--black);
       font-weight: 900;
-      font-size: 0.66rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
@@ -90,7 +90,7 @@
     .rp-band-badge {
       margin-left: auto;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.66rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -130,8 +130,8 @@
 
     .rp-table-scroll { overflow-x: auto; margin: 10px 0 20px; }
     .rp-table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 0.92rem; }
-    .rp-table caption { text-align: left; color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.72rem; margin-bottom: 8px; }
-    .rp-table th { padding: 7px 10px; text-align: left; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid var(--black); }
+    .rp-table caption { text-align: left; color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; margin-bottom: 8px; }
+    .rp-table th { padding: 7px 10px; text-align: left; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 2px solid var(--black); }
     .rp-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
     .rp-table tbody tr:last-child td { border-bottom: none; }
     .rp-table td.num, .rp-table th.num { text-align: right; font-variant-numeric: tabular-nums; }
@@ -191,8 +191,19 @@
       box-shadow: var(--shadow);
       padding: 12px 14px;
     }
-    .rp-cheat-label { display: block; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 3px; }
+    .rp-cheat-label { display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 3px; }
     .rp-cheat-value { font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); }
+
+    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 1000; padding: 10px 14px; background: var(--gold); color: var(--black); font-weight: 900; }
+    .skip-link:focus { top: 12px; }
+    .rp-jump { position: sticky; top: 0; z-index: 20; background: var(--black); border-bottom: 2px solid var(--gold); }
+    .rp-jump-inner { width: min(1120px, calc(100% - 36px)); margin: 0 auto; display: flex; gap: 8px 18px; overflow-x: auto; padding: 10px 0; }
+    .rp-jump a { color: #fff; font-size: 0.82rem; font-weight: 800; white-space: nowrap; text-decoration: none; }
+    .rp-jump a:hover, .rp-jump a:focus { color: var(--gold); text-decoration: underline; }
+    .rp-glossary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 18px; max-width: 900px; margin: 12px 0 24px; }
+    .rp-glossary div { border-top: 1px solid var(--line); padding-top: 9px; }
+    .rp-glossary dt { font-weight: 900; color: var(--green); }
+    .rp-glossary dd { margin: 2px 0 0; color: #34302c; }
 
     .rp-links { max-width: 68ch; margin-top: 20px; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--gold); border-radius: 8px; box-shadow: var(--shadow); }
     .rp-links h3 { margin-top: 0; }
@@ -212,35 +223,18 @@
 </head>
 <body class="">
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
   <a class="brand" href="./" aria-label="Benchmark home"><img src="assets/img/favicon.png" alt="" width="36" height="36"><span>Benchmark</span></a>
-  <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="managers">Managers</a><a href="record-book">Record Book</a><a href="locker-room" aria-current="page">Locker Room</a></nav>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="managers">Managers</a><a href="record-book">Record Book</a><a href="locker-room">Locker Room</a></nav>
 </header>
 
-<main>
-  <section class="page-title"><div class="record-shell"><h1>The Install</h1><p>The essential rules and guidance for new managers.</p></div></section>
+<main id="main-content">
+  <section class="page-title"><div class="record-shell"><h1>The Install</h1><p>Start with One: the guillotine, waivers, rosters, and payouts. Comp managers get an addendum.</p></div></section>
 
-  <section class="rp-section content-section">
-    <p class="rp-lede">Start with Benchmark One. If you also manage in Comp, use the short addendum after the shared rules. The quick reference at the end keeps the recurring dates and numbers in one place.</p>
-    <div class="rp-snapshot">
-      <div class="rp-snap-card division-prime">
-        <h3>Prime</h3>
-        <div class="rp-snap-buyin">$150</div>
-        <p>The top flight. 12 teams, auction draft, no autodraft. Last place gets relegated to Comp.</p>
-      </div>
-      <div class="rp-snap-card division-comp">
-        <h3>Comp</h3>
-        <div class="rp-snap-buyin">$100</div>
-        <p>The farm league. Snake draft. Win it and you can choose to promote into Prime &mdash; or stay put.</p>
-      </div>
-      <div class="rp-snap-card division-one">
-        <span class="rp-snap-tag">You are here</span>
-        <h3>One</h3>
-        <div class="rp-snap-buyin">$25</div>
-        <p>32-team guillotine side league with IDP. Low stakes, high chaos. First cut after Week 8.</p>
-      </div>
-    </div>
-  </section>
+  <nav class="rp-jump" aria-label="On this page"><div class="rp-jump-inner">
+    <a href="#one">One</a><a href="#shared">Waivers &amp; shared rules</a><a href="#comp">Comp</a><a href="#fineprint">If things go weird</a><a href="#cheatsheet">Quick reference</a>
+  </div></nav>
 
   <section class="rp-band"><div class="rp-band-inner"><span class="rp-num">01</span><h2>Start Here: Benchmark One</h2></div></section>
   <section class="rp-section content-section" id="one">
@@ -250,7 +244,7 @@
     <ul class="rp-note-list">
       <li><strong>32 teams</strong>, IDP scoring, <strong>no kickers and no D/ST.</strong> Trading is allowed through Week 4.</li>
       <li><strong>Best ball only.</strong> Sleeper automatically sets your optimal lineup after each week's games finish &mdash; there's no start/sit to manage.</li>
-      <li><strong>The draft is a coin flip, not a skill test.</strong> You pick a team, not players. Draft order comes from a "100 Yard Rush" random draw, nudged by luck modifiers tied to how promptly you filled out last year's exit survey and this year's scheduling survey.</li>
+      <li><strong>The draft is a coin flip, not a skill test.</strong> When your turn comes, you choose one of 32 complete, prebuilt fantasy rosters rather than drafting individual players. Team-pick order comes from a "100 Yard Rush" random draw, nudged by luck modifiers tied to how promptly you filled out last year's exit survey and this year's scheduling survey.</li>
     </ul>
 
     <h3 class="rp-sub">The guillotine timeline</h3>
@@ -267,9 +261,18 @@
     <div class="rp-callout">&#9888;&#65039; A chopped team's entire roster hits waivers &mdash; but the release is held until Tuesday's stat corrections are final (as late as Wednesday night in a close case), so everyone gets a fair shot at the pickups.</div>
 
     <h3 class="rp-sub">Rosters, before and after the cut to 8</h3>
+    <dl class="rp-glossary" aria-label="Fantasy football terms">
+      <div><dt>FAAB</dt><dd>Free Agent Acquisition Budget: the $1,000 you bid on waiver claims.</dd></div>
+      <div><dt>Vickrey auction</dt><dd>The winning claim pays the second-highest valid bid, not its own bid.</dd></div>
+      <div><dt>IDP</dt><dd>Individual Defensive Players: DL, LB, and DB instead of a team defense.</dd></div>
+      <div><dt>Superflex</dt><dd>A slot that can hold a QB, WR, RB, or TE. A second QB is allowed, not required.</dd></div>
+      <div><dt>Flex</dt><dd>A slot that can hold a WR, RB, or TE.</dd></div>
+      <div><dt>D/ST</dt><dd>A whole team defense and special teams unit. One does not use this slot.</dd></div>
+      <div><dt>Baluser</dt><dd>Benchmark's name for the last-place manager after the regular season.</dd></div>
+    </dl>
     <div class="rp-table-scroll">
       <table class="rp-table">
-        <thead><tr><th>Slot</th><th>Weeks 1&ndash;10</th><th>Weeks 11&ndash;17</th></tr></thead>
+        <thead><tr><th scope="col">Slot</th><th scope="col">Weeks 1&ndash;10</th><th scope="col">Weeks 11&ndash;17</th></tr></thead>
         <tbody>
           <tr><td data-label="Slot">Offense</td><td data-label="Weeks 1&ndash;10">1 Superflex (Q/W/R/T), 1 RB, 1 WR, 3 Flex (W/R/T)</td><td data-label="Weeks 11&ndash;17">1 QB, 2 RB, 3 WR, 1 TE, 1 Superflex (Q/W/R/T), 2 Flex (W/R/T)</td></tr>
           <tr><td data-label="Slot">Defense (IDP)</td><td data-label="Weeks 1&ndash;10">1 DL, 1 LB, 1 DB, 3 IDP-Flex</td><td data-label="Weeks 11&ndash;17">2 DL, 2 LB, 2 DB, 4 IDP-Flex</td></tr>
@@ -290,7 +293,7 @@
     <div class="rp-table-scroll">
       <table class="rp-table">
         <caption>Top 8 recover at least their buy-in; 9th&ndash;14th receive a partial return</caption>
-        <thead><tr><th>Finish</th><th class="num">Payout</th><th class="num">Net</th></tr></thead>
+        <thead><tr><th scope="col">Finish</th><th class="num" scope="col">Payout</th><th class="num" scope="col">Net</th></tr></thead>
         <tbody>
           <tr class="row-good"><td data-label="Finish">1st &mdash; Champion</td><td class="num" data-label="Payout">$177</td><td class="num rp-pos" data-label="Net">+$152</td></tr>
           <tr class="row-good"><td data-label="Finish">2nd &mdash; Runner-up</td><td class="num" data-label="Payout">$147</td><td class="num rp-pos" data-label="Net">+$122</td></tr>
@@ -302,6 +305,15 @@
       </table>
     </div>
     <p class="rp-lede">No weekly high/low prizes and no season-end penalties in One &mdash; the guillotine itself is the stakes.</p>
+  </section>
+
+  <section class="rp-section content-section" aria-labelledby="fit-heading">
+    <h2 class="rp-sub" id="fit-heading">How One fits into Benchmark</h2>
+    <p class="rp-lede">One is the 32-team guillotine side league. Prime and Comp are the 12-team promotion-and-relegation leagues.</p>
+    <div class="rp-snapshot">
+      <div class="rp-snap-card division-prime"><h3>Prime</h3><div class="rp-snap-buyin">$150</div><p>The top flight. Auction draft, no autodraft. Last place is relegated to Comp.</p></div>
+      <div class="rp-snap-card division-comp"><h3>Comp</h3><div class="rp-snap-buyin">$100</div><p>The promotion league. Snake draft. Its highest eligible finisher may move into Prime.</p></div>
+    </div>
   </section>
 
   <section class="rp-band"><div class="rp-band-inner"><span class="rp-num">02</span><h2>Rules Every League Shares</h2><span class="rp-band-badge">Applies to One too</span></div></section>
@@ -329,7 +341,7 @@
     <div class="rp-callout">&#128220; <strong>Best interest clause:</strong> if something breaks that the rulebook doesn't cover, the commissioner can act as needed &mdash; consulting owners or calling a vote if it's a close call. This backstops everything, including the new bot.</div>
   </section>
 
-  <section class="rp-band"><div class="rp-band-inner"><span class="rp-num">03</span><h2>Comp Addendum</h2><span class="rp-band-badge">For the 2 of you also in Comp</span></div></section>
+  <section class="rp-band"><div class="rp-band-inner"><span class="rp-num">03</span><h2>Comp Addendum</h2><span class="rp-band-badge">For managers also in Comp</span></div></section>
   <section class="rp-section content-section" id="comp">
     <div class="rp-addendum">
       <p class="rp-lede">Comp runs like a normal head-to-head league, layered with Benchmark's waiver/scoring rules above. Here's what's different from One.</p>
@@ -361,7 +373,7 @@
       <div class="rp-table-scroll">
         <table class="rp-table">
           <caption>Comp payout ladder ($100 buy-in, 12 teams)</caption>
-          <thead><tr><th>Finish</th><th class="num">Payout</th><th class="num">Net</th></tr></thead>
+          <thead><tr><th scope="col">Finish</th><th class="num" scope="col">Payout</th><th class="num" scope="col">Net</th></tr></thead>
           <tbody>
             <tr class="row-good"><td data-label="Finish">1st &mdash; Champion</td><td class="num" data-label="Payout">$421</td><td class="num rp-pos" data-label="Net">+$321</td></tr>
             <tr class="row-good"><td data-label="Finish">2nd &mdash; Runner-up</td><td class="num" data-label="Payout">$325</td><td class="num rp-pos" data-label="Net">+$225</td></tr>
@@ -416,5 +428,6 @@
 </footer>
 </body>
 </html>
+
 
 
