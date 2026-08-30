@@ -191,6 +191,7 @@ code, .tabular, .entry-year, .season-nav, .career-table, .rp-table {
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .site-nav {
   display: flex;
@@ -238,18 +239,6 @@ code, .tabular, .entry-year, .season-nav, .career-table, .rp-table {
   margin: 14px 0 0;
   color: var(--text-muted);
   font-size: 1.02rem;
-}
-.page-title::before,
-.record-book-hero::before {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--gold);
-  content: "BENCHMARK · LEAGUE ARCHIVE";
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 .intro-band {
   padding: 20px clamp(20px, 5vw, 72px);
@@ -526,6 +515,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .link-card:hover { border-color: var(--gold); }
 .link-card span {
   display: block;
+  margin-top: 4px;
   color: var(--text-faint);
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -533,7 +523,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.link-card strong { display: block; margin-top: 4px; color: var(--text); font-size: 1.65rem; }
+.link-card strong { display: block; margin: 0; color: var(--text); font-size: 1.65rem; text-transform: uppercase; }
 .not-found { text-align: center; }
 .not-found .page-title h1 { margin-inline: auto; }
 .button-link { background: var(--gold-soft); color: var(--gold); }
@@ -545,10 +535,13 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   text-align: center;
 }
 .site-footer p {
+  width: 100%;
+  max-width: none;
   margin: 0;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.05em;
+  text-align: center;
   text-transform: uppercase;
 }
 
