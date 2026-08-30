@@ -508,6 +508,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 }
 .season-block-header h2 { margin: 0; color: var(--text); font-size: 2rem; }
 .division-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; }
+.aligned-division-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .standing-division ol { margin-bottom: 0; }
 .standing-division li::marker { color: var(--gold); font-weight: 600; }
 .link-card-list { display: grid; gap: 12px; max-width: 760px; }
