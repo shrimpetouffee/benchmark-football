@@ -646,6 +646,17 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 }
 .season-page .stat-card p { margin: 7px 0 0; color: var(--text-muted); }
 .season-page .stat-winner { color: var(--gold); font-size: clamp(1.45rem, 2.7vw, 2.2rem); }
+.season-page .award-section .stat-winner {
+  margin: 5px 0 2px;
+  color: var(--green);
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.season-page .award-section .stat-card.is-negative .stat-winner { color: var(--red); }
 .season-standings-chart { margin: 0 0 clamp(28px, 5vw, 48px); }
 .season-standings-chart figcaption {
   margin: 0 0 10px;
