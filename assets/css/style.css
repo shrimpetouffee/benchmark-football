@@ -863,3 +863,64 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.001ms !important; }
 }
+
+/* Manager directory and Rookie Playbook polish */
+
+.manager-card { scroll-margin-top: 22px; }
+.manager-card:target { outline: 2px solid var(--gold); outline-offset: 4px; }
+.manager-index { margin: 0 0 22px; padding: 10px 14px; border: 1px solid var(--border-soft); border-radius: 8px; background: var(--surface-2); color: var(--text-muted); font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.9; text-align: center; }
+.manager-index a { color: var(--gold); text-decoration: none; text-underline-offset: 3px; }
+.manager-index a:hover, .manager-index a:focus-visible { color: var(--text); text-decoration: underline; }
+.manager-index-separator { color: var(--text-faint); }
+.nfl-team { display: inline-flex; align-items: center; padding: 2px 7px; border: 1px solid var(--team-accent, currentColor); border-radius: 999px; background: var(--team-bg, var(--surface-2)); color: var(--team-fg, var(--text)); font-size: 0.78em; line-height: 1.35; }
+.nfl-team-rams { --team-bg: #003695; --team-accent: #ffd102; --team-fg: #ffd102; }
+.nfl-team-seahawks { --team-bg: #032244; --team-accent: #69be2d; --team-fg: #69be2d; }
+.nfl-team-49ers { --team-bg: #ab0003; --team-accent: #b3995c; --team-fg: #fff; }
+.nfl-team-dolphins { --team-bg: #008e97; --team-accent: #fb4e05; --team-fg: #111; }
+.nfl-team-giants { --team-bg: #0b2266; --team-accent: #a6182d; --team-fg: #fff; }
+.nfl-team-cowboys { --team-bg: #032244; --team-accent: #fff; --team-fg: #fff; }
+.nfl-team-ravens { --team-bg: #231674; --team-accent: #9d7e0a; --team-fg: #fff; }
+.nfl-team-raiders { --team-bg: #a5acae; --team-accent: #111; --team-fg: #111; }
+.nfl-team-broncos { --team-bg: #f24f0f; --team-accent: #032244; --team-fg: #000; }
+.nfl-team-eagles { --team-bg: #024c55; --team-accent: #a4adac; --team-fg: #fff; }
+.nfl-team-steelers { --team-bg: #ffb612; --team-accent: #111; --team-fg: #111; }
+.nfl-team-bears { --team-bg: #0b162a; --team-accent: #e34302; --team-fg: #fff; }
+.nfl-team-colts { --team-bg: #033369; --team-accent: #eee; --team-fg: #eee; }
+.nfl-team-chargers { --team-bg: #027fc6; --team-accent: #ffc20f; --team-fg: #000; }
+.nfl-team-vikings { --team-bg: #4f2585; --team-accent: #ffc62f; --team-fg: #ffc62f; }
+.row-provisional td { color: var(--text-faint); font-style: italic; }
+.row-provisional td:last-child { color: var(--gold); font-style: normal; font-family: var(--font-mono); font-size: 0.82rem; }
+
+.rp-jump { border-block: 1px solid var(--border); background: var(--surface-2); }
+.rp-jump-inner { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; width: min(880px, calc(100% - 40px)); margin: 0 auto; padding: 10px 0; }
+.rp-jump a { display: inline-flex; align-items: center; min-height: 32px; padding: 5px 10px; border: 1px solid var(--border-soft); border-radius: 7px; color: var(--gold); font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-decoration: none; text-transform: uppercase; }
+.rp-jump a:hover, .rp-jump a:focus-visible { border-color: var(--gold); background: var(--gold-soft); color: var(--text); }
+.rp-section.content-section, .rp-band-inner { width: min(880px, calc(100% - 40px)); }
+.rp-section.content-section { max-width: none; }
+.rp-lede, .rp-timeline, .rp-note-list, .rp-callout, .rp-fineprint { max-width: none; }
+.rp-snapshot { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rp-addendum { max-width: none; }
+.rp-glossary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 10px 0 20px; }
+.rp-glossary > div { padding: 12px 14px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 8px; }
+.rp-glossary dt { color: var(--text); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.rp-glossary dd { margin: 4px 0 0; color: var(--text-muted); font-size: 0.88rem; }
+.rp-table-scroll { overflow-x: auto; padding: 12px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 9px; -webkit-overflow-scrolling: touch; }
+.rp-links { margin-top: 22px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 9px; }
+.rp-links .rp-sub { margin-top: 0; }
+.rp-links .rp-note-list { margin-bottom: 0; }
+.rp-links a { display: inline-flex; align-items: center; min-height: 30px; padding: 4px 9px; border: 1px solid var(--border-soft); border-radius: 6px; background: var(--gold-soft); color: var(--gold); font-weight: 600; text-decoration: none; }
+.rp-links a:hover, .rp-links a:focus-visible { border-color: var(--gold); color: var(--text); }
+.rp-cheat-grid { width: 100%; }
+
+@media (max-width: 760px) {
+  .manager-index { text-align: left; }
+  .rp-jump-inner, .rp-band-inner, .rp-section.content-section { width: min(100% - 28px, 880px); }
+  .rp-jump-inner { justify-content: flex-start; }
+  .rp-snapshot, .rp-glossary { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .manager-index, .rp-jump { display: none; }
+  .rp-band-inner, .rp-section.content-section { width: 100%; }
+  .nfl-team { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

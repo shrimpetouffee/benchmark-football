@@ -11,7 +11,7 @@
   <meta property="og:title" content="Benchmark - Managers">
   <meta property="og:description" content="Benchmark fantasy football manager career stats, earnings, team names, and placements.">
   <meta property="og:image" content="https://www.benchmark.football/assets/img/banner-2026.jpg">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260830-draft-prep-r6">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260830-draft-prep-r7">
 </head>
 <body class="">
 
@@ -19,9 +19,8 @@
   <a class="brand" href="./" aria-label="Benchmark home"><img src="assets/img/favicon.png" alt="" width="36" height="36"><span>Benchmark</span></a>
   <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="managers" aria-current="page">Managers</a><a href="record-book">Record Book</a><a href="locker-room">Locker Room</a></nav>
 </header><main><section class="page-title"><div class="record-shell"><h1>Managers</h1><p>In order of most seasons played, then career earnings.</p><aside class="manager-key" aria-label="Manager page key">
-  <p class="manager-key-title">How to read this page</p>
+  <p class="manager-key-title">Legend</p>
   <div class="manager-key-row">
-    <p class="manager-key-label">Results</p>
     <ul class="manager-key-results">
       <li class="manager-key-result"><span class="manager-key-icon" aria-hidden="true">🏆</span><span>Prime winner</span></li>
       <li class="manager-key-result"><span class="manager-key-icon" aria-hidden="true">🐣</span><span>Prime baluser</span></li>
@@ -38,7 +37,7 @@
       <li class="manager-key-era"><strong>2025–</strong><span><span class="league-chip chip-one">One</span> · casual side league</span></li>
     </ul>
   </div>
-</aside></div></section><section class="content-section manager-section" id="active-managers"><h2>Active Managers</h2><div class="manager-filters" hidden><button data-filter="all" aria-pressed="true">All</button><button data-filter="Prime" aria-pressed="false">Prime</button><button data-filter="Comp" aria-pressed="false">Comp</button><button data-filter="both" aria-pressed="false">Plays both</button><button data-filter="OneOnly" aria-pressed="false">One only</button></div><div class="manager-grid"><article class="manager-card" data-leagues="Prime Comp both One">
+</aside></div></section><section class="content-section manager-section" id="active-managers"><h2>Active Managers</h2><div class="manager-filters" hidden><button data-filter="all" aria-pressed="true">All</button><button data-filter="Prime" aria-pressed="false">Prime</button><button data-filter="Comp" aria-pressed="false">Comp</button><button data-filter="both" aria-pressed="false">Plays both</button><button data-filter="OneOnly" aria-pressed="false">One only</button></div><nav class="manager-index active-manager-index" aria-label="Active manager index" aria-live="polite"></nav><div class="manager-grid"><article class="manager-card" data-leagues="Prime Comp both One">
   <div class="manager-head">
     <div><h3>Reinier <span class="badges">🏆</span></h3><p class="manager-full">Reinier Laino</p></div>
     <div class="current-leagues"><span class="league-chip chip-prime">Prime</span><span class="league-chip chip-comp">Comp</span><span class="league-chip chip-one">One</span></div>
@@ -362,7 +361,7 @@
     <div class="current-leagues"><span class="league-chip chip-comp">Comp</span><span class="league-chip chip-one">One</span></div>
   </div>
   <div class="manager-meta"><span>Rookie · 2026</span><span>Favorite team: <strong>Minnesota Vikings</strong></span></div>
-</article></div></section><section class="content-section manager-section"><h2>Benchmark Emeritus</h2><div class="manager-grid"><article class="manager-card" data-leagues="none">
+</article></div></section><section class="content-section manager-section"><h2>Benchmark Emeritus</h2><nav class="manager-index emeritus-manager-index" aria-label="Benchmark Emeritus manager index"></nav><div class="manager-grid"><article class="manager-card" data-leagues="none">
   <div class="manager-head">
     <div><h3>RJ U. <span class="badges">🏆</span></h3><p class="manager-full">Richard Ujadughele</p></div>
 
@@ -655,36 +654,136 @@
 </footer>
 <script>
 (function(){
-  // data-leagues holds raw league tags (Prime/Comp/One) plus derived filter-only
-  // tags: "both" = plays Prime+Comp this season, "OneOnly" = plays only One
-  // (no Prime/Comp) — add these by hand when a manager's card qualifies.
-  var bar = document.querySelector('.manager-filters');
-  if (!bar) return;
+  var leagueOrder = ['Prime', 'Comp', 'One'];
+  var leagueSizes = { Prime: 12, Comp: 12, One: 32 };
+  var teamClasses = {
+    'Los Angeles Rams': 'rams', 'Rams': 'rams',
+    'Seattle Seahawks': 'seahawks', 'Seahawks': 'seahawks',
+    'San Francisco 49ers': '49ers', '49ers': '49ers',
+    'Miami Dolphins': 'dolphins', 'Dolphins': 'dolphins',
+    'New York Giants': 'giants', 'Giants': 'giants',
+    'Dallas Cowboys': 'cowboys', 'Cowboys': 'cowboys',
+    'Baltimore Ravens': 'ravens', 'Ravens': 'ravens',
+    'Las Vegas Raiders': 'raiders', 'Raiders': 'raiders',
+    'Denver Broncos': 'broncos', 'Broncos': 'broncos',
+    'Philadelphia Eagles': 'eagles', 'Eagles': 'eagles',
+    'Pittsburgh Steelers': 'steelers', 'Steelers': 'steelers',
+    'Chicago Bears': 'bears', 'Bears': 'bears',
+    'Indianapolis Colts': 'colts', 'Colts': 'colts',
+    'Los Angeles Chargers': 'chargers', 'Chargers': 'chargers',
+    'Minnesota Vikings': 'vikings', 'Vikings': 'vikings'
+  };
+  function slugify(value) {
+    return value.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+  function preferredName(card) {
+    var heading = card.querySelector('h3');
+    return heading ? heading.firstChild.textContent.trim() : '';
+  }
+  function fullName(card) {
+    var full = card.querySelector('.manager-full');
+    return full ? full.textContent.trim() : preferredName(card);
+  }
+  function addTeamBadge(card) {
+    card.querySelectorAll('.manager-meta span').forEach(function(meta){
+      if (meta.textContent.trim().indexOf('Favorite team:') !== 0) return;
+      var team = meta.querySelector('strong');
+      if (!team || team.classList.contains('nfl-team')) return;
+      var key = team.textContent.trim();
+      var teamClass = teamClasses[key];
+      if (!teamClass) return;
+      team.classList.add('nfl-team', 'nfl-team-' + teamClass);
+    });
+  }
+  function add2026Rows(card) {
+    var leagues = (card.getAttribute('data-leagues') || '').split(/\s+/);
+    var current = leagueOrder.filter(function(league){ return leagues.indexOf(league) !== -1; });
+    if (!current.length) return;
+    var table = card.querySelector('table.career-table');
+    if (!table) {
+      var scroll = document.createElement('div');
+      scroll.className = 'career-table-scroll';
+      scroll.innerHTML = '<table class="career-table"><thead><tr><th>Year</th><th>League</th><th>Team</th><th>Result</th></tr></thead><tbody></tbody></table>';
+      card.appendChild(scroll);
+      table = scroll.querySelector('table');
+    }
+    var tbody = table.tBodies[0] || table.createTBody();
+    current.forEach(function(league){
+      if (tbody.querySelector('tr[data-year="2026"][data-league="' + league + '"]')) return;
+      var row = document.createElement('tr');
+      row.className = 'row-provisional';
+      row.dataset.year = '2026';
+      row.dataset.league = league;
+      row.innerHTML = '<td>2026</td><td><span class="league-chip chip-' + league.toLowerCase() + '">' + league + '</span></td><td>—</td><td>TK of ' + leagueSizes[league] + '</td>';
+      tbody.appendChild(row);
+    });
+  }
+  function setupCard(card) {
+    var id = 'manager-' + slugify(fullName(card));
+    if (!card.id) card.id = id;
+    addTeamBadge(card);
+    add2026Rows(card);
+  }
+  function renderIndex(nav, cards, filter) {
+    if (!nav) return;
+    nav.textContent = '';
+    var visibleCards = cards.filter(function(card){
+      var leagues = card.getAttribute('data-leagues') || '';
+      return !filter || filter === 'all' || leagues.indexOf(filter) !== -1;
+    });
+    visibleCards.forEach(function(card, index){
+      if (index) {
+        var separator = document.createElement('span');
+        separator.className = 'manager-index-separator';
+        separator.setAttribute('aria-hidden', 'true');
+        separator.textContent = ' • ';
+        nav.appendChild(separator);
+      }
+      var link = document.createElement('a');
+      link.href = '#' + card.id;
+      link.textContent = preferredName(card);
+      nav.appendChild(link);
+    });
+  }
   var activeGrid = document.querySelector('#active-managers .manager-grid');
+  var activeCards = activeGrid ? Array.prototype.slice.call(activeGrid.querySelectorAll('.manager-card')) : [];
+  var emeritusGrid = document.querySelector('.manager-section:last-of-type .manager-grid');
+  var emeritusCards = emeritusGrid ? Array.prototype.slice.call(emeritusGrid.querySelectorAll('.manager-card')) : [];
+  activeCards.forEach(setupCard);
+  emeritusCards.forEach(function(card){
+    if (!card.id) card.id = 'manager-' + slugify(fullName(card));
+    addTeamBadge(card);
+  });
   if (activeGrid) {
-    var cards = Array.prototype.slice.call(activeGrid.querySelectorAll('.manager-card'));
     function cardStats(card) {
       var meta = card.querySelector('.manager-meta');
       var text = meta ? meta.textContent : '';
       var seasons = /([0-9]+)\s+seasons?/.exec(text);
       var earnings = /\$([0-9,.]+)/.exec(text);
-      var full = card.querySelector('.manager-full');
-      return { seasons: seasons ? parseInt(seasons[1], 10) : 0, earnings: earnings ? parseFloat(earnings[1].replace(/,/g, '')) : 0, name: (full ? full.textContent : card.querySelector('h3').textContent).toLowerCase() };
+      return { seasons: seasons ? parseInt(seasons[1], 10) : 0, earnings: earnings ? parseFloat(earnings[1].replace(/,/g, '')) : 0, name: fullName(card).toLowerCase() };
     }
-    cards.sort(function(a, b){ var x = cardStats(a), y = cardStats(b); return y.seasons - x.seasons || y.earnings - x.earnings || x.name.localeCompare(y.name); });
-    cards.forEach(function(card){ activeGrid.appendChild(card); });
+    activeCards.sort(function(a, b){ var x = cardStats(a), y = cardStats(b); return y.seasons - x.seasons || y.earnings - x.earnings || x.name.localeCompare(y.name); });
+    activeCards.forEach(function(card){ activeGrid.appendChild(card); });
   }
+  var bar = document.querySelector('.manager-filters');
+  var activeIndex = document.querySelector('.active-manager-index');
+  var emeritusIndex = document.querySelector('.emeritus-manager-index');
+  renderIndex(activeIndex, activeCards, 'all');
+  renderIndex(emeritusIndex, emeritusCards, 'all');
+  if (!bar) return;
   bar.hidden = false;
+  function applyFilter(filter) {
+    activeCards.forEach(function(card){
+      var leagues = card.getAttribute('data-leagues') || '';
+      card.style.display = filter === 'all' || leagues.indexOf(filter) !== -1 ? '' : 'none';
+    });
+    renderIndex(activeIndex, activeCards, filter);
+  }
   bar.addEventListener('click', function(e){
     var btn = e.target.closest('button[data-filter]');
     if (!btn) return;
     bar.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b === btn); });
-    var f = btn.getAttribute('data-filter');
-    document.querySelectorAll('#active-managers .manager-card').forEach(function(card){
-      var leagues = card.getAttribute('data-leagues');
-      var show = f === 'all' || leagues.indexOf(f) !== -1;
-      card.style.display = show ? '' : 'none';
-    });
+    applyFilter(btn.getAttribute('data-filter'));
   });
 })();
 </script>
