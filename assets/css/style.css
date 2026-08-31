@@ -530,6 +530,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .career-table tr.row-baluser, .rp-table tr.row-bad { background: var(--red-soft); }
 .career-table .team-carried { color: var(--text-faint); font-style: italic; }
 .row-money, .rp-pos { color: var(--green) !important; font-weight: 600; }
+.row-money-negative, .career-total-negative { color: var(--red) !important; }
 .rp-neg { color: var(--red) !important; font-weight: 600; }
 
 .quick-years, .season-nav {
