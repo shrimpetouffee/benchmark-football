@@ -344,6 +344,71 @@ code, .tabular, .entry-year, .season-nav, .career-table, .rp-table {
   color: var(--text-muted);
   font-size: 0.88rem;
 }
+.manager-key {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+.manager-key-title {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.manager-key-row + .manager-key-row {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-soft);
+}
+.manager-key-label {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.manager-key-results, .manager-key-eras {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.manager-key-results { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.manager-key-eras { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.manager-key-result, .manager-key-era {
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 7px;
+  background: var(--surface);
+}
+.manager-key-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+.manager-key-icon { flex: 0 0 auto; font-size: 1.05rem; line-height: 1; }
+.manager-key-era strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+.manager-key-era > span { color: var(--text-muted); font-size: 0.78rem; }
+.manager-key-era .league-chip { margin-right: 2px; vertical-align: middle; }
+
 .manager-section + .manager-section { border-top: 1px solid var(--border-soft); }
 .manager-section > h2, .standings-section > h2 {
   margin: 0 0 20px;
@@ -395,8 +460,6 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .other-names, .card-notes { margin: 10px 0 0; }
 .other-names strong { color: var(--text); }
 
-.league-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 12px; }
-.league-legend span:last-child { flex-basis: 100%; margin-top: 4px; color: var(--text-muted); }
 .league-chip, .tagname {
   display: inline-flex;
   align-items: center;
@@ -646,7 +709,8 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 }
 .season-page .stat-card p { margin: 7px 0 0; color: var(--text-muted); }
 .season-page .stat-winner { color: var(--gold); font-size: clamp(1.45rem, 2.7vw, 2.2rem); }
-.season-page .award-section .stat-winner {
+.season-page .award-section .stat-winner,
+.season-page .front-awards .stat-winner {
   margin: 5px 0 2px;
   color: var(--green);
   font-family: var(--font-display);
@@ -656,7 +720,8 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
-.season-page .award-section .stat-card.is-negative .stat-winner { color: var(--red); }
+.season-page .award-section .stat-card.is-negative .stat-winner,
+.season-page .front-awards .stat-card.is-negative .stat-winner { color: var(--red); }
 .season-standings-chart { margin: 0 0 clamp(28px, 5vw, 48px); }
 .season-standings-chart figcaption {
   margin: 0 0 10px;
@@ -752,6 +817,9 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .season-title-band h1 { font-size: clamp(3rem, 16vw, 4.8rem); }
   .season-page .season-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .front-grid, .highlight-list, .rp-snapshot { grid-template-columns: 1fr; }
+  .manager-key-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .manager-key-eras { grid-template-columns: 1fr; }
+
   .division-heading { padding-inline: 14px; text-align: left; }
   .award-grid, .rp-cheat-grid { grid-template-columns: 1fr; }
   .rp-band-inner { width: min(100% - 28px, 1120px); }
@@ -784,6 +852,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .page-title, .content-section, .season-front-matter, .division-body, .rp-section { padding-block: 18px; }
   .home-hero { padding: 0; }
   .entry-card, .manager-card, .principle, .season-block, .link-card, .stat-card, .highlight-panel, .rp-addendum, .rp-callout, .rp-snap-card, .rp-cheat-item { box-shadow: none; border-color: #aaa; }
+  .manager-key { background: #f2f2f2; border-color: #aaa; }
   .trophy-band, .division-heading, .rp-band { background: #f2f2f2 !important; color: #000 !important; }
   .trophy-band h2, .division-heading, .rp-band h2 { color: #000 !important; }
   .career-table-scroll, .table-wrap, .rp-table-scroll, .rp-table-wrap, .standings-chart-scroll { overflow: visible; }
