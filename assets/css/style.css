@@ -494,6 +494,15 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   border-collapse: collapse;
   font-size: 0.82rem;
 }
+.career-table { table-layout: fixed; }
+#active-managers .career-table th:nth-child(1), #active-managers .career-table td:nth-child(1) { width: 15%; }
+#active-managers .career-table th:nth-child(2), #active-managers .career-table td:nth-child(2) { width: 18%; }
+#active-managers .career-table th:nth-child(3), #active-managers .career-table td:nth-child(3) { width: 39%; overflow-wrap: anywhere; }
+#active-managers .career-table th:nth-child(4), #active-managers .career-table td:nth-child(4) { width: 28%; }
+#emeritus-managers .career-table th:nth-child(1), #emeritus-managers .career-table td:nth-child(1) { width: 12%; }
+#emeritus-managers .career-table th:nth-child(2), #emeritus-managers .career-table td:nth-child(2) { width: 15%; }
+#emeritus-managers .career-table th:nth-child(3), #emeritus-managers .career-table td:nth-child(3) { width: 48%; overflow-wrap: anywhere; }
+#emeritus-managers .career-table th:nth-child(4), #emeritus-managers .career-table td:nth-child(4) { width: 25%; }
 .career-table th, .career-table td, .rp-table th, .rp-table td {
   padding: 8px 9px;
   border-bottom: 1px solid var(--border-soft);
