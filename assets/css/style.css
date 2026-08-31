@@ -349,11 +349,12 @@ code, .tabular, .entry-year, .season-nav, .career-table, .rp-table {
 .manager-key {
   flex: 0 1 620px;
   margin: 0;
-  padding: 10px 12px;
+  padding: 14px;
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   background: var(--surface-2);
 }
+.page-title .manager-key-title { margin: 0 0 8px; }
 .manager-key-title {
   margin: 0 0 8px;
   color: var(--gold);
