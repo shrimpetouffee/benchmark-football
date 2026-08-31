@@ -344,15 +344,18 @@ code, .tabular, .entry-year, .season-nav, .career-table, .rp-table {
   color: var(--text-muted);
   font-size: 0.88rem;
 }
+.manager-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; }
+.manager-title-row > h1 { margin: 0; }
 .manager-key {
-  margin-top: 18px;
-  padding: 16px 18px;
+  flex: 0 1 620px;
+  margin: 0;
+  padding: 10px 12px;
   border: 1px solid var(--border-soft);
   border-radius: 10px;
   background: var(--surface-2);
 }
 .manager-key-title {
-  margin: 0 0 14px;
+  margin: 0 0 8px;
   color: var(--gold);
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -360,54 +363,24 @@ code, .tabular, .entry-year, .season-nav, .career-table, .rp-table {
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
-.manager-key-row + .manager-key-row {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-soft);
-}
-.manager-key-label {
-  margin: 0 0 8px;
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-.manager-key-results, .manager-key-eras {
-  display: grid;
-  gap: 8px;
+.manager-key-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.manager-key-results { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-.manager-key-eras { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.manager-key-result, .manager-key-era {
-  min-width: 0;
-  padding: 9px 10px;
-  border: 1px solid var(--border-soft);
-  border-radius: 7px;
-  background: var(--surface);
-}
 .manager-key-result {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  min-width: 0;
   color: var(--text-muted);
   font-size: 0.78rem;
+  white-space: nowrap;
 }
 .manager-key-icon { flex: 0 0 auto; font-size: 1.05rem; line-height: 1; }
-.manager-key-era strong {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
-}
-.manager-key-era > span { color: var(--text-muted); font-size: 0.78rem; }
-.manager-key-era .league-chip { margin-right: 2px; vertical-align: middle; }
 
 .manager-section + .manager-section { border-top: 1px solid var(--border-soft); }
 .manager-section > h2, .standings-section > h2 {
@@ -479,8 +452,19 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .chip-comp { color: var(--comp-ink); background: var(--comp-soft); border-color: color-mix(in srgb, var(--comp) 35%, var(--border)); }
 .chip-one { color: var(--gold); background: var(--gold-soft); border-color: color-mix(in srgb, var(--gold) 35%, var(--border)); }
 .career-table .league-chip { font-size: 0.6rem; padding: 2px 6px; }
-.manager-filters { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 18px; }
-.manager-filters button {
+.manager-controls { display: grid; gap: 10px; margin: 0 0 18px; }
+.manager-control-row { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.manager-control-label {
+  flex: 0 0 62px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.manager-filters, .manager-sort { display: flex; flex: 1 1 auto; flex-wrap: wrap; gap: 7px; margin: 0; }
+.manager-filters button, .manager-sort button {
   padding: 7px 12px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -493,7 +477,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
-.manager-filters button:hover, .manager-filters button[aria-pressed="true"] {
+.manager-filters button:hover, .manager-filters button[aria-pressed="true"], .manager-sort button:hover, .manager-sort button[aria-pressed="true"] {
   border-color: var(--gold);
   background: var(--gold-soft);
   color: var(--gold);
@@ -528,7 +512,6 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .career-table tbody tr:last-child td, .rp-table tbody tr:last-child td { border-bottom: 0; }
 .career-table tr.row-win, .rp-table tr.row-good { background: var(--gold-soft); }
 .career-table tr.row-baluser, .rp-table tr.row-bad { background: var(--red-soft); }
-.career-table .team-carried { color: var(--text-faint); font-style: italic; }
 .row-money, .rp-pos { color: var(--green) !important; font-weight: 600; }
 .row-money-negative, .career-total-negative { color: var(--red) !important; }
 .rp-neg { color: var(--red) !important; font-weight: 600; }
@@ -817,8 +800,8 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .season-title-band h1 { font-size: clamp(3rem, 16vw, 4.8rem); }
   .season-page .season-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .front-grid, .highlight-list, .rp-snapshot { grid-template-columns: 1fr; }
-  .manager-key-results { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .manager-key-eras { grid-template-columns: 1fr; }
+  .manager-title-row { flex-direction: column; gap: 16px; }
+  .manager-key { width: 100%; }
 
   .division-heading { padding-inline: 14px; text-align: left; }
   .award-grid, .rp-cheat-grid { grid-template-columns: 1fr; }
@@ -846,7 +829,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
     --comp: #04515b;
   }
   body { background: #fff; color: #000; }
-  .site-header, .site-footer, .quick-years, .season-nav, .season-switcher, .manager-filters { display: none; }
+  .site-header, .site-footer, .quick-years, .season-nav, .season-switcher, .manager-controls { display: none; }
   .content-section, .record-shell { width: 100%; }
   .page-title, .content-section, .season-front-matter, .division-body, .rp-section { padding-block: 18px; }
   .home-hero { padding: 0; }
@@ -887,7 +870,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .nfl-team-colts { --team-bg: #033369; --team-accent: #eee; --team-fg: #eee; }
 .nfl-team-chargers { --team-bg: #027fc6; --team-accent: #ffc20f; --team-fg: #000; }
 .nfl-team-vikings { --team-bg: #4f2585; --team-accent: #ffc62f; --team-fg: #ffc62f; }
-.row-provisional td { color: var(--text-faint); font-style: italic; }
+.row-provisional td { color: var(--text-faint); }
 .row-provisional td:last-child { color: var(--gold); font-style: normal; font-family: var(--font-mono); font-size: 0.82rem; }
 
 .rp-jump { border-block: 1px solid var(--border); background: var(--surface-2); }
