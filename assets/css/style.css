@@ -388,15 +388,16 @@ code, .tabular, .entry-year, .season-nav, .career-table, .rp-table {
   color: var(--gold);
   font-size: clamp(1.9rem, 4vw, 3rem);
 }
-.manager-grid { display: grid; gap: 14px; }
-#active-managers .manager-grid { display: block; column-count: 2; column-gap: 14px; }
-#active-managers .manager-card {
+.manager-grid { display: block; column-count: 2; column-gap: 14px; }
+.manager-card {
   display: inline-block;
   width: 100%;
   margin: 0 0 14px;
   break-inside: avoid;
+  min-width: 0;
+  padding: 18px;
+  border-left: 3px solid var(--gold);
 }
-.manager-card { min-width: 0; padding: 18px; border-left: 3px solid var(--gold); }
 .manager-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .manager-card h3 { margin: 0; color: var(--text); font-size: 1.65rem; }
 .badges { color: var(--gold); }
@@ -803,7 +804,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .intro-band h1 { text-align: left; }
   .entry-grid, .division-grid { grid-template-columns: 1fr; }
   .manager-columns { grid-template-columns: 1fr; }
-  #active-managers .manager-grid { column-count: 1; }
+  .manager-grid { column-count: 1; }
   .manager-head { flex-direction: column; }
   .season-block-header { align-items: flex-start; flex-direction: column; }
   .season-title-band h1 { font-size: clamp(3rem, 16vw, 4.8rem); }
