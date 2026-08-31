@@ -533,6 +533,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .career-table tr.row-win, .rp-table tr.row-good { background: var(--gold-soft); }
 .career-table tr.row-baluser, .rp-table tr.row-bad { background: var(--red-soft); }
 .row-money, .rp-pos { color: var(--green) !important; font-weight: 600; }
+.career-total { color: var(--green); }
 .row-money-negative, .career-total-negative { color: var(--red) !important; }
 .rp-neg { color: var(--red) !important; font-weight: 600; }
 
@@ -895,6 +896,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .nfl-team-colts { --team-bg: #033369; --team-accent: #eee; --team-fg: #eee; }
 .nfl-team-chargers { --team-bg: #027fc6; --team-accent: #ffc20f; --team-fg: #000; }
 .nfl-team-vikings { --team-bg: #4f2585; --team-accent: #ffc62f; --team-fg: #ffc62f; }
+.nfl-team-patriots { --team-bg: #002244; --team-accent: #c60c30; --team-fg: #fff; }
 .row-provisional td { color: var(--text-faint); }
 .row-provisional td:last-child { color: var(--gold); font-style: normal; font-family: var(--font-mono); font-size: 0.82rem; }
 
