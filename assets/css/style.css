@@ -824,7 +824,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .season-page .season-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .front-grid, .highlight-list, .rp-snapshot { grid-template-columns: 1fr; }
   .manager-title-row { flex-direction: column; gap: 16px; }
-  .manager-key { width: 100%; }
+  .manager-key { width: 100%; flex: 0 0 auto; }
 
   .division-heading { padding-inline: 14px; text-align: left; }
   .award-grid, .rp-cheat-grid { grid-template-columns: 1fr; }
