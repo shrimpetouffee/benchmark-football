@@ -812,8 +812,6 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .home-hero img { max-height: none; object-fit: contain; }
   .page-title h1 { font-size: clamp(2.6rem, 15vw, 4.7rem); }
   .page-title p { overflow-wrap: anywhere; }
-  .intro-band { text-align: left; }
-  .intro-band h1 { text-align: left; }
   .entry-grid, .division-grid { grid-template-columns: 1fr; }
   .manager-columns { grid-template-columns: 1fr; }
   .manager-grid { grid-template-columns: 1fr; }
