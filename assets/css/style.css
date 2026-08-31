@@ -752,7 +752,6 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .rp-band-inner { display: flex; align-items: baseline; gap: 12px; width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 .rp-num { color: var(--gold); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; }
 .rp-band h2 { margin: 0; font-size: clamp(1.45rem, 3vw, 2.35rem); }
-.rp-band-badge { margin-left: auto; color: var(--text-faint); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; }
 .rp-lede { max-width: 68ch; color: var(--text-muted); }
 .rp-sub { margin: 28px 0 8px; color: var(--text); font-family: var(--font-body); font-size: 1rem; letter-spacing: 0; text-transform: none; }
 .rp-snapshot { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
@@ -823,7 +822,6 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .division-heading { padding-inline: 14px; text-align: left; }
   .award-grid, .rp-cheat-grid { grid-template-columns: 1fr; }
   .rp-band-inner { width: min(100% - 28px, 1120px); }
-  .rp-band-badge { max-width: 12ch; text-align: right; }
   .season-standings-chart figcaption { padding-left: 2px; }
   .standings-chart-scroll { margin-inline: -14px; border-radius: 0; }
   .standings-chart-scroll img { width: auto; min-width: 760px; max-height: 58vh; }
@@ -924,3 +922,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .rp-band-inner, .rp-section.content-section { width: 100%; }
   .nfl-team { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* Archived record-book emphasis restored against migrated text. */
+.record-emphasis { color: var(--text); font-weight: 700; }
+.career-table tr.row-baluser .row-money { color: var(--red) !important; }
