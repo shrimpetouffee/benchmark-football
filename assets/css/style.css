@@ -388,11 +388,21 @@ code, .tabular, .entry-year, .season-nav, .career-table, .rp-table {
   color: var(--gold);
   font-size: clamp(1.9rem, 4vw, 3rem);
 }
-.manager-grid { display: block; column-count: 2; column-gap: 14px; }
+.manager-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+.manager-grid.manager-masonry {
+  grid-auto-rows: 1px;
+  row-gap: 0;
+}
+.manager-grid.manager-masonry .manager-card { align-self: start; }
 .manager-card {
-  display: inline-block;
+  display: block;
   width: 100%;
-  margin: 0 0 14px;
+  margin: 0;
   break-inside: avoid;
   min-width: 0;
   padding: 18px;
@@ -804,7 +814,9 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .intro-band h1 { text-align: left; }
   .entry-grid, .division-grid { grid-template-columns: 1fr; }
   .manager-columns { grid-template-columns: 1fr; }
-  .manager-grid { column-count: 1; }
+  .manager-grid { grid-template-columns: 1fr; }
+  .manager-grid.manager-masonry { grid-auto-rows: auto; gap: 14px; }
+  .manager-grid.manager-masonry .manager-card { grid-column: auto !important; grid-row-start: auto !important; grid-row-end: auto !important; }
   .manager-head { flex-direction: column; }
   .season-block-header { align-items: flex-start; flex-direction: column; }
   .season-title-band h1 { font-size: clamp(3rem, 16vw, 4.8rem); }
@@ -845,6 +857,9 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .home-hero { padding: 0; }
   .entry-card, .manager-card, .principle, .season-block, .link-card, .stat-card, .highlight-panel, .rp-addendum, .rp-callout, .rp-snap-card, .rp-cheat-item { box-shadow: none; border-color: #aaa; }
   .manager-key { background: #f2f2f2; border-color: #aaa; }
+  .manager-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .manager-grid.manager-masonry { grid-auto-rows: auto; gap: 14px; }
+  .manager-grid.manager-masonry .manager-card { grid-column: auto !important; grid-row-start: auto !important; grid-row-end: auto !important; }
   .trophy-band, .division-heading, .rp-band { background: #f2f2f2 !important; color: #000 !important; }
   .trophy-band h2, .division-heading, .rp-band h2 { color: #000 !important; }
   .career-table-scroll, .table-wrap, .rp-table-scroll, .rp-table-wrap, .standings-chart-scroll { overflow: visible; }

@@ -11,7 +11,7 @@
   <meta property="og:title" content="Benchmark - Managers">
   <meta property="og:description" content="Benchmark fantasy football manager career stats, earnings, team names, and placements.">
   <meta property="og:image" content="https://www.benchmark.football/assets/img/banner-2026.jpg">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260830-draft-prep-r13">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260830-draft-prep-r14">
 </head>
 <body class="">
 
@@ -872,6 +872,44 @@
     cards.sort(function(a, b){ return compareCards(a, b, sort); });
     if (grid) cards.forEach(function(card){ grid.appendChild(card); });
   }
+  function clearMasonry(grid) {
+    if (!grid) return;
+    grid.classList.remove('manager-masonry');
+    grid.querySelectorAll('.manager-card').forEach(function(card){
+      card.style.gridColumn = '';
+      card.style.gridRowStart = '';
+      card.style.gridRowEnd = '';
+    });
+  }
+  function layoutMasonry(grid) {
+    if (!grid) return;
+    clearMasonry(grid);
+    if (window.matchMedia('(max-width: 760px)').matches || window.matchMedia('print').matches) return;
+    var measured = Array.prototype.slice.call(grid.querySelectorAll('.manager-card')).filter(function(card){
+      return getComputedStyle(card).display !== 'none';
+    }).map(function(card){
+      return { card: card, height: card.getBoundingClientRect().height };
+    });
+    var columnHeights = [0, 0];
+    measured.forEach(function(item){
+      var column = columnHeights[0] <= columnHeights[1] ? 0 : 1;
+      var span = Math.max(1, Math.ceil(item.height + 14));
+      item.card.style.gridColumn = String(column + 1);
+      item.card.style.gridRowStart = String(columnHeights[column] + 1);
+      item.card.style.gridRowEnd = 'span ' + span;
+      columnHeights[column] += span;
+    });
+    grid.classList.add('manager-masonry');
+  }
+  var layoutFrame = null;
+  function scheduleMasonry() {
+    if (layoutFrame) cancelAnimationFrame(layoutFrame);
+    layoutFrame = requestAnimationFrame(function(){
+      layoutFrame = null;
+      layoutMasonry(activeGrid);
+      layoutMasonry(emeritusGrid);
+    });
+  }
   var bar = document.querySelector('.manager-filters');
   var sortBar = document.querySelector('#active-managers .manager-sort');
   var emeritusSortBar = document.querySelector('.emeritus-manager-sort');
@@ -881,6 +919,9 @@
   sortCards(emeritusCards, emeritusGrid, emeritusSort);
   renderIndex(activeIndex, activeCards, currentFilter);
   renderIndex(emeritusIndex, emeritusCards, 'all');
+  scheduleMasonry();
+  window.addEventListener('resize', scheduleMasonry);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleMasonry);
   function applyFilter(filter) {
     currentFilter = filter;
     activeCards.forEach(function(card){
@@ -888,6 +929,7 @@
       card.style.display = filter === 'all' || leagues.indexOf(filter) !== -1 ? '' : 'none';
     });
     renderIndex(activeIndex, activeCards, currentFilter);
+    scheduleMasonry();
   }
   function bindSortBar(sortBar, applySort) {
     if (!sortBar) return;
@@ -911,11 +953,13 @@
     activeSort = sort;
     sortCards(activeCards, activeGrid, activeSort);
     renderIndex(activeIndex, activeCards, currentFilter);
+    scheduleMasonry();
   });
   bindSortBar(emeritusSortBar, function(sort){
     emeritusSort = sort;
     sortCards(emeritusCards, emeritusGrid, emeritusSort);
     renderIndex(emeritusIndex, emeritusCards, 'all');
+    scheduleMasonry();
   });
 })();
 </script>
