@@ -874,7 +874,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 /* Manager directory and Rookie Playbook polish */
 
 .manager-card { scroll-margin-top: 22px; }
-.manager-card:target { outline: 2px solid var(--gold); outline-offset: 4px; }
+.manager-card:target { outline: 2px solid var(--text); outline-offset: 4px; }
 .manager-index { margin: 0 0 22px; padding: 10px 14px; border: 1px solid var(--border-soft); border-radius: 8px; background: var(--surface-2); color: var(--text-muted); font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.9; text-align: center; }
 .manager-index a { color: var(--gold); text-decoration: none; text-underline-offset: 3px; }
 .manager-index a:hover, .manager-index a:focus-visible { color: var(--text); text-decoration: underline; }
