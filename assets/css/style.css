@@ -82,8 +82,8 @@
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
+/* Dormant opt-in light theme: add data-theme="light" to :root to re-enable. */
+:root[data-theme="light"] {
     color-scheme: light;
     --bg: #f7f4ec;
     --surface: #ffffff;
@@ -112,7 +112,6 @@
     --muted: var(--text-muted);
     --line: var(--border-soft);
     --shadow: 0 10px 24px rgba(33, 27, 20, 0.07);
-  }
 }
 
 * { box-sizing: border-box; }
