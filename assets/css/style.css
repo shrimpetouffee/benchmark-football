@@ -662,6 +662,9 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
+@media screen {
+  .season-front-matter:has(.record-league-index) { padding-top: 22px; }
+}
 .front-group + .front-group { margin-top: clamp(30px, 5vw, 54px); padding-top: clamp(24px, 4vw, 42px); border-top: 1px solid var(--border); }
 .front-heading, .division-heading, .award-section-title, .highlight-panel h3 { font-family: var(--font-display); text-transform: uppercase; }
 .front-heading { margin: 0 0 18px; color: var(--gold); font-size: clamp(1.8rem, 4vw, 3.4rem); }
