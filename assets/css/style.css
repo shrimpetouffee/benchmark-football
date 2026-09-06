@@ -617,7 +617,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 
 /* Season record-book pages */
 .season-page main { background: var(--bg); }
-.record-book-hero { padding: clamp(42px, 7vw, 78px) 0 28px; background: var(--bg); }
+.record-book-hero { padding: clamp(16px, 2.5vw, 28px) 0 8px; background: var(--bg); }
 .record-book-hero h1 {
   margin: 0;
   color: var(--text-faint);
@@ -626,7 +626,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   font-weight: 600;
   letter-spacing: 0.1em;
 }
-.record-book-hero .record-kicker { margin: 0 0 10px; color: var(--text-faint); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.record-book-hero .record-kicker { margin: 0; color: var(--text-faint); font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
 .record-book-hero p { margin: 0 0 10px; }
 .record-book-hero p a {
   color: var(--gold);
@@ -637,10 +637,9 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   text-decoration: none;
   text-transform: uppercase;
 }
-.season-title-band { padding: 0 0 clamp(36px, 6vw, 68px); background: var(--bg); }
+.season-title-band { padding: 0 0 clamp(12px, 2vw, 20px); background: var(--bg); }
 .season-title-band h1 { margin: 0; max-width: 16ch; color: var(--text); font-size: clamp(3rem, 8vw, 6.4rem); }
 .season-title-band p { margin: 14px 0 0; color: var(--text-muted); }
-.season-page .season-nav { margin-top: 0; padding: 12px 0 18px; }
 .season-page .season-detail { width: 100%; padding: 0 0 clamp(44px, 7vw, 88px); }
 .season-page .season-switcher {
   display: grid;
@@ -649,7 +648,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   gap: 8px;
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 0 0 18px;
+  padding: 0 0 12px;
   border-bottom: 1px solid var(--border-soft);
 }
 .season-page .season-switcher > :first-child { justify-self: start; }
@@ -834,7 +833,6 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .manager-head { flex-direction: column; }
   .season-block-header { align-items: flex-start; flex-direction: column; }
   .season-title-band h1 { font-size: clamp(3rem, 16vw, 4.8rem); }
-  .season-page .season-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .front-grid, .highlight-list, .rp-snapshot { grid-template-columns: 1fr; }
   .manager-title-row { flex-direction: column; gap: 16px; }
   .manager-key { width: 100%; flex: 0 0 auto; }
