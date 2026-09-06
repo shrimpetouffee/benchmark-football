@@ -836,6 +836,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   .front-grid, .highlight-list, .rp-snapshot { grid-template-columns: 1fr; }
   .manager-title-row { flex-direction: column; gap: 16px; }
   .manager-key { width: 100%; flex: 0 0 auto; }
+  .record-league-index { text-align: center; }
 
   .division-heading { padding-inline: 14px; text-align: left; }
   .award-grid, .rp-cheat-grid { grid-template-columns: 1fr; }
@@ -934,6 +935,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 
 @media (max-width: 760px) {
   .manager-index { text-align: left; }
+  .record-league-index { text-align: center; }
   .rp-jump-inner, .rp-band-inner, .rp-section.content-section { width: min(100% - 28px, 1120px); }
   .rp-jump-inner { justify-content: flex-start; }
   .rp-snapshot, .rp-glossary { grid-template-columns: 1fr; }
