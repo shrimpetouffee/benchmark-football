@@ -643,15 +643,18 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .season-page .season-nav { margin-top: 0; padding: 12px 0 18px; }
 .season-page .season-detail { width: 100%; padding: 0 0 clamp(44px, 7vw, 88px); }
 .season-page .season-switcher {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
   gap: 8px;
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
   padding: 0 0 18px;
   border-bottom: 1px solid var(--border-soft);
 }
+.season-page .season-switcher > :first-child { justify-self: start; }
+.season-page .season-switcher > :nth-child(2) { justify-self: center; }
+.season-page .season-switcher > :last-child { justify-self: end; }
 .season-page .season-switcher a { min-height: 34px; }
 .redesigned-record-book { display: block; max-width: none; }
 .season-front-matter {
@@ -859,7 +862,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
     --comp: #04515b;
   }
   body { background: #fff; color: #000; }
-  .site-header, .site-footer, .quick-years, .season-nav, .season-switcher, .manager-controls { display: none; }
+  .site-header, .site-footer, .quick-years, .season-nav, .season-page .season-switcher, .manager-controls { display: none; }
   .content-section, .record-shell { width: 100%; }
   .page-title, .content-section, .season-front-matter, .division-body, .rp-section { padding-block: 18px; }
   .home-hero { padding: 0; }
