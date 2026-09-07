@@ -709,7 +709,7 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .division-league .division-heading { color: var(--text); background: var(--surface-2); }
 .division-body { padding: clamp(30px, 6vw, 70px) 0; }
 .highlight-panel { margin: 0 0 clamp(28px, 5vw, 48px); padding: clamp(20px, 4vw, 34px); border-left: 3px solid var(--gold); }
-.highlight-panel h3 { margin: 0 0 18px; color: var(--text); font-size: clamp(1.5rem, 3vw, 2.5rem); }
+.highlight-panel h3 { margin: 0 0 18px; color: var(--gold); }
 .highlight-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px clamp(18px, 4vw, 34px); }
 .highlight-list li + li { margin-top: 0; }
 .award-section-title { margin: 0 0 16px; color: var(--gold); font-size: clamp(1.45rem, 3vw, 2.2rem); }
@@ -739,6 +739,8 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
+.highlight-panel h3,
+.season-page .award-section .award-grid-featured .stat-winner { font-size: clamp(1.5rem, 3vw, 2.5rem); }
 .season-page .award-section .stat-card.is-negative .stat-winner,
 .season-page .front-awards .stat-card.is-negative .stat-winner { color: var(--red); }
 .season-standings-chart { margin: 0 0 clamp(28px, 5vw, 48px); }
