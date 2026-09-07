@@ -580,6 +580,10 @@ ul, ol { margin-top: 0; padding-left: 1.25rem; }
 .aligned-division-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .standing-division ol { margin-bottom: 0; }
 .standings-section .standing-division ol > li:nth-child(-n + 6) { color: var(--text); font-weight: 700; }
+/* The 2012–2014 playoffs included only the top four finishers. */
+.standings-section :is(#season-2012, #season-2013, #season-2014) .standing-division ol > li:nth-child(n + 5) { color: var(--text-muted); font-weight: 400; }
+/* Only the winner is emphasized in the inaugural One guillotine season. */
+.standings-section #season-2025 .standing-one ol > li:nth-child(n + 2) { color: var(--text-muted); font-weight: 400; }
 .standing-division li::marker { color: var(--gold); font-weight: 600; }
 .link-card-list { display: grid; gap: 12px; max-width: 760px; }
 .link-card { display: block; padding: 18px 20px; text-decoration: none; }
